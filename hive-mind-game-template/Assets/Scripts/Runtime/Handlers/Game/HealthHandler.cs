@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace HiveMindGameTemplate.Runtime.Handlers.Game
 {
-    public abstract class HealthHandler : Handler<int, bool, Action>
+    public abstract class HealthHandler : Handler<int, bool, Action<int, int, bool>>
     {
         #region Fields
         protected int currentHealth;
@@ -28,14 +28,16 @@ namespace HiveMindGameTemplate.Runtime.Handlers.Game
         #endregion
 
         #region Executes
-        public override void Execute(int amount, bool isSet, Action deadAction) => base.Execute(amount, isSet, deadAction);
-        protected override void ExecuteProcess(int amount, bool isSet, Action deadAction) => UpdateHealthValue(amount, isSet, deadAction);
-        private void UpdateHealthValue(int amount, bool isSet, Action deadAction = null)
+        public override void Execute(int amount, bool isSet, Action<int, int, bool> healthChangedAction) => base.Execute(amount, isSet, healthChangedAction);
+        protected override void ExecuteProcess(int amount, bool isSet, Action<int, int, bool> healthChangedAction) => UpdateHealthValue(amount, isSet, healthChangedAction);
+        private void UpdateHealthValue(int amount, bool isSet, Action<int, int, bool> healthChangedAction = null)
         {
             currentHealth = isSet ? amount : currentHealth + amount;
             currentHealth = Mathf.Min(currentHealth, maxHealth);
-            if (currentHealth <= 0)
-                deadAction?.Invoke();
+            
+            bool isDead = currentHealth <= 0;
+
+            healthChangedAction?.Invoke(currentHealth, maxHealth, isDead);
         }
         #endregion
     }

@@ -86,6 +86,29 @@ namespace HiveMindGameTemplate.Runtime.Signals.Game
     }
     #endregion
 
+    #region Player
+    public readonly struct PlayerHealthChangedSignal
+    {
+        #region ReadonlyFields
+        private readonly int currentHealth;
+        private readonly int maxHealth;
+        #endregion
+
+        #region Getters
+        public readonly int CurrentHealth => currentHealth;
+        public readonly int MaxHealth => maxHealth;
+        #endregion
+
+        #region Contructor
+        public PlayerHealthChangedSignal(int currentHealth, int maxHealth)
+        {
+            this.currentHealth = currentHealth;
+            this.maxHealth = maxHealth;
+        }
+        #endregion
+    }
+    #endregion
+
     #region Enemy
     public readonly struct SpawnEnemySignal
     {
@@ -107,23 +130,7 @@ namespace HiveMindGameTemplate.Runtime.Signals.Game
         }
         #endregion
     }
-    public readonly struct EnemyDeadSignal
-    {
-        #region ReadonlyFields
-        private readonly int xpAmount;
-        #endregion
-
-        #region Getters
-        public readonly int XPAmount => xpAmount;
-        #endregion
-
-        #region Constructor
-        public EnemyDeadSignal(int xpAmount)
-        {
-            this.xpAmount = xpAmount;
-        }
-        #endregion
-    }
+    public readonly struct EnemyDeadSignal { }
     #endregion
 
     #region Audio

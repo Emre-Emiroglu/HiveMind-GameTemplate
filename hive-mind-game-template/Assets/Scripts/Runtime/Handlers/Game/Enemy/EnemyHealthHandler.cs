@@ -22,8 +22,8 @@ namespace HiveMindGameTemplate.Runtime.Handlers.Game.Enemy
         #endregion
 
         #region Executes
-        public override void Execute(int amount, bool isSet, Action deadAction) => base.Execute(amount, isSet, deadAction);
-        protected override void ExecuteProcess(int amount, bool isSet, Action deadAction) => base.ExecuteProcess(amount, isSet, deadAction);
+        public override void Execute(int amount, bool isSet, Action<int, int, bool> healthChangedAction) => base.Execute(amount, isSet, healthChangedAction);
+        protected override void ExecuteProcess(int amount, bool isSet, Action<int, int, bool> healthChangedAction) => base.ExecuteProcess(amount, isSet, healthChangedAction);
         #endregion
     }
 }

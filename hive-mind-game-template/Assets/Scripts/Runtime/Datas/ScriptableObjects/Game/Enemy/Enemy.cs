@@ -10,13 +10,11 @@ namespace HiveMindGameTemplate.Runtime.Datas.ScriptableObjects.Game.Enemy
         #region Fields
         [Header("Enemy Settings")]
         [SerializeField] private EnemyTypes enemyType;
-        [SerializeField] private int xpValue = 1;
         [SerializeField] private int maxHealth = 100;
         #endregion
 
         #region Getters
         public EnemyTypes EnemyType => enemyType;
-        public int XPValue => xpValue;
         public int MaxHealth => maxHealth;
         #endregion
     }

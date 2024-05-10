@@ -29,5 +29,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 55c1e23e6c4b27d41872ac8280384d21, type: 2}
   - {fileID: 11400000, guid: 807b00ba27ad9a74caabab6265ee6cda, type: 2}
   - {fileID: 11400000, guid: 71893431d4df15143949b4cd8bbdd5fb, type: 2}
-  minimumSpawnPosition: {x: -100, y: -50}
-  maximumSpawnPosition: {x: 100, y: 50}
+  minimumSpawnPosition: {x: -85, y: -45}
+  maximumSpawnPosition: {x: 85, y: 45}

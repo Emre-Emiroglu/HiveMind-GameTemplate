@@ -23,4 +23,4 @@ MonoBehaviour:
     SerializationNodes: []
   enemyType: 1
   xpValue: 1
-  maxHealth: 1
+  maxHealth: 5

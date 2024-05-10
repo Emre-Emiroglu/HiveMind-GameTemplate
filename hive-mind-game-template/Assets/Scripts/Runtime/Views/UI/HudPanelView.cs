@@ -1,7 +1,9 @@
 using HiveMind.Core.MVC.Views;
 using HiveMindGameTemplate.Runtime.Datas.ValueObjects.UI;
 using HiveMindGameTemplate.Runtime.Interfaces.UI;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace HiveMindGameTemplate.Runtime.Views.UI
 {
@@ -11,10 +13,16 @@ namespace HiveMindGameTemplate.Runtime.Views.UI
         #region Fields
         [Header("Hud Panel View Fields")]
         [SerializeField] private UIPanel_VO uiPanel_VO;
+        [SerializeField] private TextMeshProUGUI waveText;
+        [SerializeField] private TextMeshProUGUI enemyCountText;
+        [SerializeField] private Image playerHealthFillImage;
         #endregion
 
         #region Getters
         public UIPanel_VO UIPanel_VO => uiPanel_VO;
+        public TextMeshProUGUI WaveText => waveText;
+        public TextMeshProUGUI EnemyCountText => enemyCountText;
+        public Image PlayerHealthFillImage => playerHealthFillImage;
         #endregion
 
         #region Core

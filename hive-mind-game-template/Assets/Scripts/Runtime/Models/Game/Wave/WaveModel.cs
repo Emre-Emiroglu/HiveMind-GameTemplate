@@ -19,6 +19,7 @@ namespace HiveMindGameTemplate.Runtime.Models.Game.Wave
 
         #region Getters
         public WavePersisentData WavePersisentData => wavePersisentData;
+        public Datas.ScriptableObjects.Game.Wave.Wave CurrentWave => settings.Waves[wavePersisentData.CurrentWaveIndex % settings.Waves.Length];
         #endregion
 
         #region Constructor
@@ -42,7 +43,7 @@ namespace HiveMindGameTemplate.Runtime.Models.Game.Wave
         public void UpdateCurrentWaveIndex(bool isSet, int value)
         {
             wavePersisentData.CurrentWaveIndex = isSet ? value : wavePersisentData.CurrentWaveIndex + value;
-
+            
             Save();
         }
         public void Save()

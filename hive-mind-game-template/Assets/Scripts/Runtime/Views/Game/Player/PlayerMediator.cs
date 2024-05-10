@@ -87,7 +87,13 @@ namespace HiveMindGameTemplate.Runtime.Views.Game.Player
 
         #region HandlerReceivers
         private void OnSpawnProjectieAction(ProjectileTypes projectileType, Vector2 spawnPosition, Quaternion spawnRotation, int value) => signalBus.Fire<SpawnProjectileSignal>(new(projectileType, spawnPosition, spawnRotation, value));
-        private void OnDeadAction() => signalBus.Fire<GameOverSignal>(new());
+        private void OnHealthChangedAction(int currentHealth, int maxHealth, bool isDead)
+        {
+            signalBus.Fire<PlayerHealthChangedSignal>(new(currentHealth, maxHealth));
+
+            if (isDead)
+                signalBus.Fire<GameOverSignal>(new());
+        }
         #endregion
 
         #region SignalReceivers
@@ -113,7 +119,7 @@ namespace HiveMindGameTemplate.Runtime.Views.Game.Player
                 case ProjectileOwnerTypes.Player:
                     break;
                 case ProjectileOwnerTypes.Enemy:
-                    healthHandler?.Execute(-projectileHitSignal.Value, false, OnDeadAction);
+                    healthHandler?.Execute(-projectileHitSignal.Value, false, OnHealthChangedAction);
                     break;
             }
         }

@@ -82,10 +82,13 @@ namespace HiveMindGameTemplate.Runtime.Views.Game.Enemy
         #endregion
 
         #region HandlerReceivers
-        private void OnDeadAction()
+        private void OnHealthChangedAction(int currentHealth, int maxHealth, bool isDead)
         {
-            signalBus.Fire<EnemyDeadSignal>(new(enemy.XPValue));
-            Dispose();
+            if (isDead)
+            {
+                signalBus.Fire<EnemyDeadSignal>(new());
+                Dispose();
+            }
         }
         #endregion
 
@@ -94,7 +97,7 @@ namespace HiveMindGameTemplate.Runtime.Views.Game.Enemy
         {
             bool hit = view.EnemyEntity_VO.Transform.gameObject == projectileHitSignal.HittedObject;
             if (projectileHitSignal.OwnerType == ProjectileOwnerTypes.Player && hit)
-                healthHandler?.Execute(-projectileHitSignal.Value, false, OnDeadAction);
+                healthHandler?.Execute(-projectileHitSignal.Value, false, OnHealthChangedAction);
         }
         #endregion
     }

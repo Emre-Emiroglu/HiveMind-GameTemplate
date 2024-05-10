@@ -42,6 +42,8 @@ namespace HiveMindGameTemplate.Runtime.Installers.Game
             binderData.Container.DeclareSignal<SpawnProjectileSignal>();
             binderData.Container.DeclareSignal<ProjectileHitSignal>();
 
+            binderData.Container.DeclareSignal<PlayerHealthChangedSignal>();
+
             binderData.Container.DeclareSignal<SpawnEnemySignal>();
             binderData.Container.DeclareSignal<EnemyDeadSignal>();
 

@@ -28,10 +28,9 @@ namespace HiveMindGameTemplate.Runtime.Handlers.Game.Wave
         #endregion
 
         #region Getters
-        private Datas.ScriptableObjects.Game.Wave.Wave CurrentWave => waveModel.Settings.Waves[waveModel.WavePersisentData.CurrentWaveIndex];
-        private EnemyTypes TargetEnemyType => CurrentWave.Enemies.Keys.ToList()[targetEnemyIndex];
+        private EnemyTypes TargetEnemyType => waveModel.CurrentWave.Enemies.Keys.ToList()[targetEnemyIndex];
         private bool ReachedToTargetCount => currentSpawnCount[TargetEnemyType] == targetSpawnCount[TargetEnemyType];
-        private int TotalEnemyCount => CurrentWave.Enemies.Values.ToList().Sum();
+        private int TotalEnemyCount => waveModel.CurrentWave.Enemies.Values.ToList().Sum();
         private Vector2 GetRandomSpawnPosition()
         {
             WaveSettings waveSettings = waveModel.Settings;
@@ -112,12 +111,12 @@ namespace HiveMindGameTemplate.Runtime.Handlers.Game.Wave
         {
             currentSpawnCount = new();
             targetSpawnCount = new();
-            foreach (var item in CurrentWave.Enemies)
+            foreach (var item in waveModel.CurrentWave.Enemies)
             {
                 currentSpawnCount.Add(item.Key, 0);
                 targetSpawnCount.Add(item.Key, item.Value);
             }
-            spawnDelay = CurrentWave.SpawnDelay;
+            spawnDelay = waveModel.CurrentWave.SpawnDelay;
         }
         private void SetupCheckVariables()
         {
