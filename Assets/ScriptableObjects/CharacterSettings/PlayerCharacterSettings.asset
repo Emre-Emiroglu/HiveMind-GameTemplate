@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 944cadb19fc7fc140a152506522dba4e, type: 3}
+  m_Name: PlayerCharacterSettings
+  m_EditorClassIdentifier: 
+  InputData:
+    inputType: 0
+    inputActionAsset: {fileID: -944628639613478452, guid: c4d8ed0c68723d14896596ebb7c49603, type: 3}
+    inputActionNames:
+      keyData: 000000000100000002000000030000000400000005000000
+      valueData:
+      - Player
+      - Movement
+      - Run
+      - MousePos
+      - AttackKey
+      - DashKey
+  MovementData:
+    movementType: 0
+    movementSpace: 0
+    transformMovementStyle: 0
+    rigidbodyMovementStyle: 0
+    forceMode: 0
+    minimumPositionClamp: {x: -85, y: -45, z: 0}
+    maximumPositionClamp: {x: 85, y: 45, z: 0}
+    magnitudeClamp: 0
+    speeds:
+      keyData: 0000000001000000
+      valueData:
+      - 10
+      - 20
+  RotationData:
+    rotationType: 1
+    rotationStyle: 0
+    rotationSpace: 0
+    rotationSpeed: 32
+    isSlerp: 1

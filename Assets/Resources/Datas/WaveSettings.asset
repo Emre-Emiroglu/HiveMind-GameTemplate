@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55b87f9d71fa38e40a70a8c3cc22b137, type: 3}
+  m_Name: WaveSettings
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  waves:
+  - {fileID: 11400000, guid: 7432ebe952b1cfd4daac398b7f938925, type: 2}
+  - {fileID: 11400000, guid: ab595d5db77c8e54da5928a86a9c8a03, type: 2}
+  - {fileID: 11400000, guid: 69bb4c4b918a9744d86e060d4f0d4982, type: 2}
+  - {fileID: 11400000, guid: 433911b75eb1bc54b902e339b0ceca9b, type: 2}
+  - {fileID: 11400000, guid: 55c1e23e6c4b27d41872ac8280384d21, type: 2}
+  - {fileID: 11400000, guid: 807b00ba27ad9a74caabab6265ee6cda, type: 2}
+  - {fileID: 11400000, guid: 71893431d4df15143949b4cd8bbdd5fb, type: 2}
+  minimumSpawnPosition: {x: -100, y: -50}
+  maximumSpawnPosition: {x: 100, y: 50}
