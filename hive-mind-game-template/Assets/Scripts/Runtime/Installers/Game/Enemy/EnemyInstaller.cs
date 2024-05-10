@@ -9,6 +9,8 @@ namespace HiveMindGameTemplate.Runtime.Installers.Game.Enemy
         public override void InstallBindings()
         {
             Container.BindInterfacesAndSelfTo<EnemyHealthHandler>().AsTransient();
+            Container.BindInterfacesAndSelfTo<EnemyMovementHandler>().AsTransient();
+            Container.BindInterfacesAndSelfTo<EnemyRotationHandler>().AsTransient();
         }
         #endregion
     }

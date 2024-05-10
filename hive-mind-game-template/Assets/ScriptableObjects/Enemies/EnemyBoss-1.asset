@@ -22,5 +22,25 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   enemyType: 2
-  xpValue: 1
   maxHealth: 100
+  closingDistance: 1
+  movementData:
+    movementType: 0
+    movementSpace: 0
+    transformMovementStyle: 0
+    rigidbodyMovementStyle: 0
+    forceMode: 0
+    minimumPositionClamp: {x: -85, y: -45, z: 0}
+    maximumPositionClamp: {x: 85, y: 45, z: 0}
+    magnitudeClamp: 0
+    speeds:
+      keyData: 0000000001000000
+      valueData:
+      - 10
+      - 20
+  rotationData:
+    rotationType: 1
+    rotationStyle: 0
+    rotationSpace: 0
+    rotationSpeed: 32
+    isSlerp: 1

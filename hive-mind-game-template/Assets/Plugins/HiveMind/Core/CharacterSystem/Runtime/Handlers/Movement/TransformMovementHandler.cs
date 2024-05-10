@@ -7,7 +7,7 @@ namespace HiveMind.Core.CharacterSystem.Runtime.Handlers.Movement
     public class TransformMovementHandler : MovementHandler
     {
         #region ReadonlyFields
-        private readonly Transform transform;
+        protected Transform transform;
         #endregion
 
         #region Constructor

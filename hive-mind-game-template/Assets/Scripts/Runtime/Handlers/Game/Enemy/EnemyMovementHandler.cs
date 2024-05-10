@@ -1,20 +1,14 @@
 using HiveMind.Core.CharacterSystem.Runtime.Datas.ValueObjects;
 using HiveMind.Core.CharacterSystem.Runtime.Enums;
+using HiveMind.Core.CharacterSystem.Runtime.Handlers.Movement;
 using UnityEngine;
 
-namespace HiveMind.Core.CharacterSystem.Runtime.Handlers.Movement
+namespace HiveMindGameTemplate.Runtime.Handlers.Game.Enemy
 {
-    public abstract class MovementHandler: Handler<Vector2, MovementStatus>
+    public class EnemyMovementHandler : TransformMovementHandler
     {
-        #region ReadonlyFields
-        protected MovementData movementData;
-        #endregion
-
         #region Constructor
-        public MovementHandler(MovementData movementData) : base()
-        {
-            this.movementData = movementData;
-        }
+        public EnemyMovementHandler() : base(null, new MovementData()) { }
         #endregion
 
         #region Dispose
@@ -23,11 +17,16 @@ namespace HiveMind.Core.CharacterSystem.Runtime.Handlers.Movement
 
         #region Set
         public override void SetEnableStatus(bool isEnable) => base.SetEnableStatus(isEnable);
+        public void SetMovementValues(Transform transform, MovementData movementData)
+        {
+            this.transform = transform;
+            this.movementData = movementData;
+        }
         #endregion
 
         #region Executes
         public override void Execute(Vector2 inputValue, MovementStatus movementStatus) => base.Execute(inputValue, movementStatus);
-        protected override void ExecuteProcess(Vector2 inputValue, MovementStatus movementStatus) { }
+        protected override void ExecuteProcess(Vector2 inputValue, MovementStatus movementStatus) => base.ExecuteProcess(inputValue, movementStatus);
         #endregion
     }
 }

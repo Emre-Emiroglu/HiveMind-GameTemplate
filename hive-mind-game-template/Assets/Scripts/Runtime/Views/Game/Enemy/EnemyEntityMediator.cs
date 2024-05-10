@@ -1,37 +1,62 @@
+using HiveMind.Core.CharacterSystem.Runtime.Enums;
 using HiveMindGameTemplate.Runtime.Enums.Game.Enemy;
 using HiveMindGameTemplate.Runtime.Enums.Game.Projectile;
 using HiveMindGameTemplate.Runtime.Handlers.Game.Enemy;
 using HiveMindGameTemplate.Runtime.Signals.Game;
+using HiveMindGameTemplate.Runtime.Views.Game.Player;
 using System;
 using UnityEngine;
 using Zenject;
 
 namespace HiveMindGameTemplate.Runtime.Views.Game.Enemy
 {
-    public sealed class EnemyEntityMediator : MonoBehaviour, IPoolable<Datas.ScriptableObjects.Game.Enemy.Enemy, Vector2, Quaternion, IMemoryPool>, IDisposable
+    public sealed class EnemyEntityMediator : MonoBehaviour, IPoolable<Datas.ScriptableObjects.Game.Enemy.Enemy, Vector2, Quaternion, IMemoryPool>, IDisposable, ITickable
     {
-        #region Fields
+        #region Injects
+        private TickableManager tickableManager;
         private SignalBus signalBus;
         private EnemyEntityView view;
+        private PlayerView playerView;
         private EnemyHealthHandler healthHandler;
+        private EnemyMovementHandler movementHandler;
+        private EnemyRotationHandler rotationHandler;
+        #endregion
+
+        #region Fields
         private GameObject healthBar;
         private Datas.ScriptableObjects.Game.Enemy.Enemy enemy;
         private IMemoryPool memoryPool;
         #endregion
 
+        #region Getters
+        private Vector3 GetDirection()
+        {
+            Vector3 dir = playerView.Player_VO.Transform.position - view.EnemyEntity_VO.Transform.position;
+            dir.z = 0f;
+
+            return dir;
+        }
+        #endregion
+
         #region PostConstruct
         [Inject]
-        private void PostConstruct(SignalBus signalBus, EnemyEntityView view, EnemyHealthHandler healthHandler)
+        private void PostConstruct(TickableManager tickableManager, SignalBus signalBus, EnemyEntityView view, PlayerView playerView, EnemyHealthHandler healthHandler, EnemyMovementHandler movementHandler, EnemyRotationHandler rotationHandler)
         {
+            this.tickableManager = tickableManager;
             this.signalBus = signalBus;
             this.view = view;
+            this.playerView = playerView;
             this.healthHandler = healthHandler;
+            this.movementHandler = movementHandler;
+            this.rotationHandler = rotationHandler;
         }
         #endregion
 
         #region Pool
         public void OnSpawned(Datas.ScriptableObjects.Game.Enemy.Enemy enemy, Vector2 spawnPosition, Quaternion spawnRotation, IMemoryPool memoryPool)
         {
+            tickableManager.Add(this);
+
             signalBus.Subscribe<ProjectileHitSignal>(OnProjectileHitSignal);
 
             SetupVisualize(enemy.EnemyType);
@@ -40,12 +65,16 @@ namespace HiveMindGameTemplate.Runtime.Views.Game.Enemy
             SetHealthBar(1, 1);
 
             healthHandler?.SetHealthValues(enemy.MaxHealth, enemy.MaxHealth);
+            movementHandler?.SetMovementValues(view.EnemyEntity_VO.Transform, enemy.MovementData);
+            rotationHandler?.SetRotationValues(view.EnemyEntity_VO.Transform, enemy.RotationData);
 
             this.enemy = enemy;
             this.memoryPool = memoryPool;
         }
         public void OnDespawned()
         {
+            tickableManager.Remove(this);
+
             signalBus.Unsubscribe<ProjectileHitSignal>(OnProjectileHitSignal);
          
             SetupTransform(Vector2.zero, Quaternion.identity);
@@ -60,6 +89,8 @@ namespace HiveMindGameTemplate.Runtime.Views.Game.Enemy
         public void Dispose()
         {
             healthHandler?.Dispose();
+            movementHandler?.Dispose();
+            rotationHandler?.Dispose();
             memoryPool.Despawn(this);
         }
         #endregion
@@ -104,12 +135,32 @@ namespace HiveMindGameTemplate.Runtime.Views.Game.Enemy
         private void SetHandlersEnableStatus(bool isEnable)
         {
             healthHandler?.SetEnableStatus(isEnable);
+            movementHandler?.SetEnableStatus(isEnable);
+            rotationHandler?.SetEnableStatus(isEnable);
         }
         private void SetHealthBar(float currentHealth, float maxHealth)
         {
             float amount = currentHealth / maxHealth;
             Vector3 orginalScale = healthBar.transform.localScale;
             healthBar.transform.localScale = new(orginalScale.x, .5f * amount, orginalScale.z);
+        }
+        #endregion
+
+        #region Ticks
+        public void Tick()
+        {
+            if (!view.EnemyEntity_VO.Transform.gameObject.activeInHierarchy)
+                return;
+
+            Vector3 dir = GetDirection();
+            Vector3 dirNormal = dir.normalized;
+            float dirMagnitude = dir.magnitude;
+
+            if (dirMagnitude <= enemy.ClosingDistance)
+                return;
+
+            movementHandler?.Execute(dirNormal, MovementStatus.Walk);
+            rotationHandler?.Execute(dir);
         }
         #endregion
     }

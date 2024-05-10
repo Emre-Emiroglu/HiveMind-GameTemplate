@@ -6,8 +6,8 @@ namespace HiveMind.Core.CharacterSystem.Runtime.Handlers.Rotation
     public abstract class RotationHandler : Handler<Vector2>
     {
         #region ReadonlyFields
-        protected readonly RotationData rotationData;
-        protected readonly Transform transform;
+        protected RotationData rotationData;
+        protected Transform transform;
         #endregion
 
         #region Constructor
