@@ -124,7 +124,7 @@ namespace HiveMindGameTemplate.Runtime.Views.UI
 
             view.EnemyCountText.SetText($"{deadEnemyCount}/{totalEnemyCount}");
         }
-        private void SetPlayerHealthFillImage(int currentHealth, int maxHealth)
+        private void SetPlayerHealthFillImage(float currentHealth, float maxHealth)
         {
             float amount =  currentHealth / maxHealth;
             view.PlayerHealthFillImage.fillAmount = amount;

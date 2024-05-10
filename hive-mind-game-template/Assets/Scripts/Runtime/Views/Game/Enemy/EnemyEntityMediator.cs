@@ -14,6 +14,7 @@ namespace HiveMindGameTemplate.Runtime.Views.Game.Enemy
         private SignalBus signalBus;
         private EnemyEntityView view;
         private EnemyHealthHandler healthHandler;
+        private GameObject healthBar;
         private Datas.ScriptableObjects.Game.Enemy.Enemy enemy;
         private IMemoryPool memoryPool;
         #endregion
@@ -36,6 +37,7 @@ namespace HiveMindGameTemplate.Runtime.Views.Game.Enemy
             SetupVisualize(enemy.EnemyType);
             SetupTransform(spawnPosition, spawnRotation);
             SetHandlersEnableStatus(true);
+            SetHealthBar(1, 1);
 
             healthHandler?.SetHealthValues(enemy.MaxHealth, enemy.MaxHealth);
 
@@ -62,28 +64,11 @@ namespace HiveMindGameTemplate.Runtime.Views.Game.Enemy
         }
         #endregion
 
-        #region Executes
-        private void SetupVisualize(EnemyTypes enemyType)
-        {
-            foreach (var item in view.EnemyEntity_VO.Types)
-            {
-                bool isActive = item.Key == enemyType;
-                item.Value.SetActive(isActive);
-            }
-        }
-        public void SetupTransform(Vector2 spawnPosition, Quaternion spawnRotation)
-        {
-            view.EnemyEntity_VO.Transform.SetPositionAndRotation(spawnPosition, spawnRotation);
-        }
-        private void SetHandlersEnableStatus(bool isEnable)
-        {
-            healthHandler?.SetEnableStatus(isEnable);
-        }
-        #endregion
-
         #region HandlerReceivers
         private void OnHealthChangedAction(int currentHealth, int maxHealth, bool isDead)
         {
+            SetHealthBar(currentHealth, maxHealth);
+
             if (isDead)
             {
                 signalBus.Fire<EnemyDeadSignal>(new());
@@ -98,6 +83,33 @@ namespace HiveMindGameTemplate.Runtime.Views.Game.Enemy
             bool hit = view.EnemyEntity_VO.Transform.gameObject == projectileHitSignal.HittedObject;
             if (projectileHitSignal.OwnerType == ProjectileOwnerTypes.Player && hit)
                 healthHandler?.Execute(-projectileHitSignal.Value, false, OnHealthChangedAction);
+        }
+        #endregion
+
+        #region Executes
+        private void SetupVisualize(EnemyTypes enemyType)
+        {
+            foreach (var item in view.EnemyEntity_VO.Types)
+            {
+                bool isActive = item.Key == enemyType;
+                item.Value.SetActive(isActive);
+            }
+
+            healthBar = view.EnemyEntity_VO.HealthBars[enemyType];
+        }
+        public void SetupTransform(Vector2 spawnPosition, Quaternion spawnRotation)
+        {
+            view.EnemyEntity_VO.Transform.SetPositionAndRotation(spawnPosition, spawnRotation);
+        }
+        private void SetHandlersEnableStatus(bool isEnable)
+        {
+            healthHandler?.SetEnableStatus(isEnable);
+        }
+        private void SetHealthBar(float currentHealth, float maxHealth)
+        {
+            float amount = currentHealth / maxHealth;
+            Vector3 orginalScale = healthBar.transform.localScale;
+            healthBar.transform.localScale = new(orginalScale.x, .5f * amount, orginalScale.z);
         }
         #endregion
     }
