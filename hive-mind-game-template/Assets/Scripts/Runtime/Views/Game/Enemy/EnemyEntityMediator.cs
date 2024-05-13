@@ -13,7 +13,6 @@ namespace HiveMindGameTemplate.Runtime.Views.Game.Enemy
     public sealed class EnemyEntityMediator : MonoBehaviour, IPoolable<Datas.ScriptableObjects.Game.Enemy.Enemy, Vector2, Quaternion, IMemoryPool>, IDisposable, ITickable
     {
         #region Injects
-        private TickableManager tickableManager;
         private SignalBus signalBus;
         private EnemyEntityView view;
         private PlayerView playerView;
@@ -40,9 +39,8 @@ namespace HiveMindGameTemplate.Runtime.Views.Game.Enemy
 
         #region PostConstruct
         [Inject]
-        private void PostConstruct(TickableManager tickableManager, SignalBus signalBus, EnemyEntityView view, PlayerView playerView, EnemyHealthHandler healthHandler, EnemyMovementHandler movementHandler, EnemyRotationHandler rotationHandler)
+        private void PostConstruct(SignalBus signalBus, EnemyEntityView view, PlayerView playerView, EnemyHealthHandler healthHandler, EnemyMovementHandler movementHandler, EnemyRotationHandler rotationHandler)
         {
-            this.tickableManager = tickableManager;
             this.signalBus = signalBus;
             this.view = view;
             this.playerView = playerView;
@@ -55,8 +53,6 @@ namespace HiveMindGameTemplate.Runtime.Views.Game.Enemy
         #region Pool
         public void OnSpawned(Datas.ScriptableObjects.Game.Enemy.Enemy enemy, Vector2 spawnPosition, Quaternion spawnRotation, IMemoryPool memoryPool)
         {
-            tickableManager.Add(this);
-
             signalBus.Subscribe<ProjectileHitSignal>(OnProjectileHitSignal);
 
             SetupVisualize(enemy.EnemyType);
@@ -73,8 +69,6 @@ namespace HiveMindGameTemplate.Runtime.Views.Game.Enemy
         }
         public void OnDespawned()
         {
-            tickableManager.Remove(this);
-
             signalBus.Unsubscribe<ProjectileHitSignal>(OnProjectileHitSignal);
          
             SetupTransform(Vector2.zero, Quaternion.identity);

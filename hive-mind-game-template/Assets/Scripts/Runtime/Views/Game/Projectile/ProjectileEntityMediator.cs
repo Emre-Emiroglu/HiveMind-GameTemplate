@@ -119,6 +119,9 @@ namespace HiveMindGameTemplate.Runtime.Views.Game.Projectile
         #region PhysicReceivers
         public void OnEnterCallback(Collision collision = null, Collision2D collision2D = null, Collider collider = null, Collider2D collider2D = null)
         {
+            if (collider2D == null)
+                return;
+
             signalBus.Fire<ProjectileHitSignal>(new(collider2D.attachedRigidbody.gameObject, projectile.OwnerType, projectile.Value));
 
             if (CanDead(collider2D))

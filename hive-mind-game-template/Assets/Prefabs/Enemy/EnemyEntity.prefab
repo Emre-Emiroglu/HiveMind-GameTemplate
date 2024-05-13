@@ -93,7 +93,7 @@ MonoBehaviour:
   _identifier: 
   _useSceneContext: 0
   _context: {fileID: 0}
-  _bindType: 0
+  _bindType: 2
 --- !u!50 &4668854802839771611
 Rigidbody2D:
   serializedVersion: 4
