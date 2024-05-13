@@ -61,9 +61,15 @@ namespace HiveMindGameTemplate.Runtime.Views.Game.Player
         private void SetInGameSubscriptions(bool isSub)
         {
             if (isSub)
+            {
                 signalBus.Subscribe<ProjectileHitSignal>(OnProjectileHitSignal);
+                signalBus.Subscribe<EnemyMeleAttackSignal>(OnEnemyMeleAttackSignal);
+            }
             else
+            {
                 signalBus.Unsubscribe<ProjectileHitSignal>(OnProjectileHitSignal);
+                signalBus.Unsubscribe<EnemyMeleAttackSignal>(OnEnemyMeleAttackSignal);
+            }
         }
         #endregion
 
@@ -122,6 +128,10 @@ namespace HiveMindGameTemplate.Runtime.Views.Game.Player
                     healthHandler?.Execute(-projectileHitSignal.Value, false, OnHealthChangedAction);
                     break;
             }
+        }
+        private void OnEnemyMeleAttackSignal(EnemyMeleAttackSignal enemyMeleAttackSignal)
+        {
+            healthHandler?.Execute(-enemyMeleAttackSignal.AttackValue, false, OnHealthChangedAction);
         }
         #endregion
 

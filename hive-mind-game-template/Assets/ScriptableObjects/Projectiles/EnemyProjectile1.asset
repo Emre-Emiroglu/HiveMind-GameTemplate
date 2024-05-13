@@ -24,4 +24,4 @@ MonoBehaviour:
   projectileType: 1
   ownerType: 1
   lifeTime: 5
-  speed: 25
+  speed: 50

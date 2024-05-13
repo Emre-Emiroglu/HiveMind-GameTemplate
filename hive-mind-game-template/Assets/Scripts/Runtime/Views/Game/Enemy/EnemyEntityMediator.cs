@@ -19,6 +19,7 @@ namespace HiveMindGameTemplate.Runtime.Views.Game.Enemy
         private EnemyHealthHandler healthHandler;
         private EnemyMovementHandler movementHandler;
         private EnemyRotationHandler rotationHandler;
+        private EnemyAttackHandler attackHandler;
         #endregion
 
         #region Fields
@@ -39,7 +40,7 @@ namespace HiveMindGameTemplate.Runtime.Views.Game.Enemy
 
         #region PostConstruct
         [Inject]
-        private void PostConstruct(SignalBus signalBus, EnemyEntityView view, PlayerView playerView, EnemyHealthHandler healthHandler, EnemyMovementHandler movementHandler, EnemyRotationHandler rotationHandler)
+        private void PostConstruct(SignalBus signalBus, EnemyEntityView view, PlayerView playerView, EnemyHealthHandler healthHandler, EnemyMovementHandler movementHandler, EnemyRotationHandler rotationHandler, EnemyAttackHandler attackHandler)
         {
             this.signalBus = signalBus;
             this.view = view;
@@ -47,6 +48,7 @@ namespace HiveMindGameTemplate.Runtime.Views.Game.Enemy
             this.healthHandler = healthHandler;
             this.movementHandler = movementHandler;
             this.rotationHandler = rotationHandler;
+            this.attackHandler = attackHandler;
         }
         #endregion
 
@@ -54,6 +56,7 @@ namespace HiveMindGameTemplate.Runtime.Views.Game.Enemy
         public void OnSpawned(Datas.ScriptableObjects.Game.Enemy.Enemy enemy, Vector2 spawnPosition, Quaternion spawnRotation, IMemoryPool memoryPool)
         {
             signalBus.Subscribe<ProjectileHitSignal>(OnProjectileHitSignal);
+            signalBus.Subscribe<GameOverSignal>(OnGameOverSignal);
 
             SetupVisualize(enemy.EnemyType);
             SetupTransform(spawnPosition, spawnRotation);
@@ -63,6 +66,7 @@ namespace HiveMindGameTemplate.Runtime.Views.Game.Enemy
             healthHandler?.SetHealthValues(enemy.MaxHealth, enemy.MaxHealth);
             movementHandler?.SetMovementValues(view.EnemyEntity_VO.Transform, enemy.MovementData);
             rotationHandler?.SetRotationValues(view.EnemyEntity_VO.Transform, enemy.RotationData);
+            attackHandler?.SetAttackValues(view.EnemyEntity_VO.Transform, enemy);
 
             this.enemy = enemy;
             this.memoryPool = memoryPool;
@@ -70,7 +74,8 @@ namespace HiveMindGameTemplate.Runtime.Views.Game.Enemy
         public void OnDespawned()
         {
             signalBus.Unsubscribe<ProjectileHitSignal>(OnProjectileHitSignal);
-         
+            signalBus.Unsubscribe<GameOverSignal>(OnGameOverSignal);
+
             SetupTransform(Vector2.zero, Quaternion.identity);
             SetHandlersEnableStatus(false);
 
@@ -85,7 +90,8 @@ namespace HiveMindGameTemplate.Runtime.Views.Game.Enemy
             healthHandler?.Dispose();
             movementHandler?.Dispose();
             rotationHandler?.Dispose();
-            memoryPool.Despawn(this);
+            attackHandler?.Dispose();
+            memoryPool?.Despawn(this);
         }
         #endregion
 
@@ -100,6 +106,8 @@ namespace HiveMindGameTemplate.Runtime.Views.Game.Enemy
                 Dispose();
             }
         }
+        private void OnMeleAttackAction(int attackValue) => signalBus.Fire<EnemyMeleAttackSignal>(new(attackValue));
+        private void OnSpawnProjectileAction(ProjectileTypes projectileType, Vector2 spawnPosition, Quaternion spawnRotation, int value) => signalBus.Fire<SpawnProjectileSignal>(new(projectileType, spawnPosition, spawnRotation, value));
         #endregion
 
         #region SignalReceivers
@@ -109,6 +117,7 @@ namespace HiveMindGameTemplate.Runtime.Views.Game.Enemy
             if (projectileHitSignal.OwnerType == ProjectileOwnerTypes.Player && hit)
                 healthHandler?.Execute(-projectileHitSignal.Value, false, OnHealthChangedAction);
         }
+        private void OnGameOverSignal(GameOverSignal gameOverSignal) => Dispose();
         #endregion
 
         #region Executes
@@ -131,6 +140,7 @@ namespace HiveMindGameTemplate.Runtime.Views.Game.Enemy
             healthHandler?.SetEnableStatus(isEnable);
             movementHandler?.SetEnableStatus(isEnable);
             rotationHandler?.SetEnableStatus(isEnable);
+            attackHandler?.SetEnableStatus(isEnable);
         }
         private void SetHealthBar(float currentHealth, float maxHealth)
         {
@@ -150,11 +160,17 @@ namespace HiveMindGameTemplate.Runtime.Views.Game.Enemy
             Vector3 dirNormal = dir.normalized;
             float dirMagnitude = dir.magnitude;
 
-            if (dirMagnitude <= enemy.ClosingDistance)
-                return;
+            bool inAttackZone = dirMagnitude <= enemy.ClosingDistance;
 
-            movementHandler?.Execute(dirNormal, MovementStatus.Walk);
-            rotationHandler?.Execute(dir);
+            if (inAttackZone)
+            {
+                attackHandler?.Execute(OnMeleAttackAction, OnSpawnProjectileAction);
+            }
+            else
+            {
+                movementHandler?.Execute(dirNormal, MovementStatus.Walk);
+                rotationHandler?.Execute(dir);
+            }
         }
         #endregion
     }

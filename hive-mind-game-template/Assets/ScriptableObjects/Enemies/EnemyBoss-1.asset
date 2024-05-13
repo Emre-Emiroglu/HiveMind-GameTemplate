@@ -22,8 +22,12 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   enemyType: 2
+  attackType: 0
+  projectileType: 0
+  rateOfAttack: 2
+  attackValue: 10
   maxHealth: 100
-  closingDistance: 1
+  closingDistance: 5
   movementData:
     movementType: 0
     movementSpace: 0
@@ -36,8 +40,8 @@ MonoBehaviour:
     speeds:
       keyData: 0000000001000000
       valueData:
-      - 10
-      - 20
+      - 2.5
+      - 5
   rotationData:
     rotationType: 1
     rotationStyle: 0

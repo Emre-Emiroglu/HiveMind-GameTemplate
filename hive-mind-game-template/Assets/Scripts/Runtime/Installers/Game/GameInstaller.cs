@@ -46,6 +46,7 @@ namespace HiveMindGameTemplate.Runtime.Installers.Game
 
             binderData.Container.DeclareSignal<SpawnEnemySignal>();
             binderData.Container.DeclareSignal<EnemyDeadSignal>();
+            binderData.Container.DeclareSignal<EnemyMeleAttackSignal>();
 
             commandBinder.BindSignal<PlayAudioSignal>().WithCommand<PlayAudioCommand>();
         }

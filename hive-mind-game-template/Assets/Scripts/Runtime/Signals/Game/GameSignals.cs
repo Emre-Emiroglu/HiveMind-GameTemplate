@@ -131,6 +131,23 @@ namespace HiveMindGameTemplate.Runtime.Signals.Game
         #endregion
     }
     public readonly struct EnemyDeadSignal { }
+    public readonly struct EnemyMeleAttackSignal
+    {
+        #region ReadonlyFields
+        private readonly int attackValue;
+        #endregion
+
+        #region Getters
+        public readonly int AttackValue => attackValue;
+        #endregion
+
+        #region Constructor
+        public EnemyMeleAttackSignal(int attackValue)
+        {
+            this.attackValue = attackValue;
+        }
+        #endregion
+    }
     #endregion
 
     #region Audio

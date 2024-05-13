@@ -22,8 +22,12 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   enemyType: 1
+  attackType: 1
+  projectileType: 1
+  rateOfAttack: 1
+  attackValue: 1
   maxHealth: 5
-  closingDistance: 1
+  closingDistance: 20
   movementData:
     movementType: 0
     movementSpace: 0

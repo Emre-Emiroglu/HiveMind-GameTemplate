@@ -11,6 +11,7 @@ namespace HiveMindGameTemplate.Runtime.Installers.Game.Enemy
             Container.BindInterfacesAndSelfTo<EnemyHealthHandler>().AsTransient();
             Container.BindInterfacesAndSelfTo<EnemyMovementHandler>().AsTransient();
             Container.BindInterfacesAndSelfTo<EnemyRotationHandler>().AsTransient();
+            Container.BindInterfacesAndSelfTo<EnemyAttackHandler>().AsTransient();
         }
         #endregion
     }

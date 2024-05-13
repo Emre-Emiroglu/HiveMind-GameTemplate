@@ -82,7 +82,7 @@ namespace HiveMindGameTemplate.Runtime.Views.Game.Projectile
         {
             projectileMobilityHandler?.Dispose();
             projectileLifetimeHandler?.Dispose();
-            memoryPool.Despawn(this);
+            memoryPool?.Despawn(this);
         }
         #endregion
 
