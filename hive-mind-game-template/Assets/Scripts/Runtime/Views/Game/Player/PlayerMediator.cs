@@ -107,6 +107,8 @@ namespace HiveMindGameTemplate.Runtime.Views.Game.Player
         {
             SetInGameSubscriptions(true);
             SetHandlersEnableStatus(true);
+
+            healthHandler?.Execute(playerModel.Settings.MaxHealth, true, OnHealthChangedAction);
         }
         private void OnWaveWinSignal(WaveWinSignal waveWinSignal)
         {
