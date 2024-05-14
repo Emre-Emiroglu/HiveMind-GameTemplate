@@ -1,5 +1,5 @@
-using HiveMind.Core.MVC.Attributes;
-using HiveMind.Core.MVC.Controllers;
+using HiveMind.Core.MVC.Runtime.Attributes;
+using HiveMind.Core.MVC.Runtime.Controllers;
 using UnityEngine;
 
 namespace HiveMindGameTemplate.Runtime.Controllers.Game.Audio

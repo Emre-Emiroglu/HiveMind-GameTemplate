@@ -1,5 +1,5 @@
-using HiveMind.Core.MVC.Datas;
-using HiveMind.Core.MVC.Installers;
+using HiveMind.Core.MVC.Runtime.Datas;
+using HiveMind.Core.MVC.Runtime.Installers;
 using HiveMindGameTemplate.Runtime.Controllers.Game;
 using HiveMindGameTemplate.Runtime.Controllers.Game.Audio;
 using HiveMindGameTemplate.Runtime.Handlers.Game.Enemy;

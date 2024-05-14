@@ -1,4 +1,4 @@
-using HiveMind.Core.MVC.Views;
+using HiveMind.Core.MVC.Runtime.Views;
 using HiveMindGameTemplate.Runtime.Datas.ValueObjects.UI;
 using HiveMindGameTemplate.Runtime.Interfaces.UI;
 using UnityEngine;

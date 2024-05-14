@@ -1,5 +1,5 @@
-using HiveMind.Core.ProDebug.Colorize;
-using HiveMind.Core.ProDebug.TextFormat;
+using HiveMind.Core.ProDebug.Runtime.Colorize;
+using HiveMind.Core.ProDebug.Runtime.TextFormat;
 using HiveMindGameTemplate.Runtime.Factories.Game.Projectile;
 using HiveMindGameTemplate.Runtime.Models.Game.Projectile;
 using HiveMindGameTemplate.Runtime.Signals.Game;

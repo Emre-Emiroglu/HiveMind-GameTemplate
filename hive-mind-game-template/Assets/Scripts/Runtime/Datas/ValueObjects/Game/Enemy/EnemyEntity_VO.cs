@@ -1,4 +1,4 @@
-using HiveMind.Core.Utilities.SerializedDictionary;
+using HiveMind.Core.Utilities.Runtime.SerializedDictionary;
 using HiveMindGameTemplate.Runtime.Enums.Game.Enemy;
 using System;
 using UnityEngine;

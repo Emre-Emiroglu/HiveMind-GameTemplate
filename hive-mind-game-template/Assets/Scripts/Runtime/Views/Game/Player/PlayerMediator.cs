@@ -1,5 +1,5 @@
-using HiveMind.Core.MVC.Attributes;
-using HiveMind.Core.MVC.Views;
+using HiveMind.Core.MVC.Runtime.Attributes;
+using HiveMind.Core.MVC.Runtime.Views;
 using HiveMindGameTemplate.Runtime.Enums.Game.Projectile;
 using HiveMindGameTemplate.Runtime.Handlers.Game.Player;
 using HiveMindGameTemplate.Runtime.Models.Game.Player;

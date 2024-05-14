@@ -1,6 +1,6 @@
-using HiveMind.Core.MVC.Controllers;
-using HiveMind.Core.ProDebug.Colorize;
-using HiveMind.Core.ProDebug.TextFormat;
+using HiveMind.Core.MVC.Runtime.Controllers;
+using HiveMind.Core.ProDebug.Runtime.Colorize;
+using HiveMind.Core.ProDebug.Runtime.TextFormat;
 using HiveMindGameTemplate.Runtime.Signals.Game;
 using UnityEngine;
 using Zenject;

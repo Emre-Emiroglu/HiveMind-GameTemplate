@@ -1,5 +1,5 @@
-using HiveMind.Core.MVC.Attributes;
-using HiveMind.Core.MVC.Views;
+using HiveMind.Core.MVC.Runtime.Attributes;
+using HiveMind.Core.MVC.Runtime.Views;
 using HiveMindGameTemplate.Runtime.Signals.Game;
 using System;
 using Zenject;
