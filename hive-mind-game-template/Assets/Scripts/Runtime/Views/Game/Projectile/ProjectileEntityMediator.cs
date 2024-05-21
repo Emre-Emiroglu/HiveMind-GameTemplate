@@ -125,10 +125,12 @@ namespace HiveMindGameTemplate.Runtime.Views.Game.Projectile
             if (collider2D.attachedRigidbody.gameObject == null)
                 return;
 
-            signalBus.Fire<ProjectileHitSignal>(new(collider2D.attachedRigidbody.gameObject, projectile.OwnerType, projectile.Value));
 
             if (CanDead(collider2D))
+            {
+                signalBus.Fire<ProjectileHitSignal>(new(collider2D.attachedRigidbody.gameObject, projectile.OwnerType, projectile.Value));
                 OnDeadAction();
+            }
         }
         #endregion
     }
