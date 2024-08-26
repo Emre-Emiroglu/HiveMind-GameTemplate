@@ -1,7 +1,9 @@
 {
     "name": "HiveMindGameTemplate.Editor",
     "rootNamespace": "HiveMindGameTemplate.Editor",
-    "references": [],
+    "references": [
+        "GUID:789c0afa6e6ee5146aaec58126d4e79b"
+    ],
     "includePlatforms": [
         "Editor"
     ],

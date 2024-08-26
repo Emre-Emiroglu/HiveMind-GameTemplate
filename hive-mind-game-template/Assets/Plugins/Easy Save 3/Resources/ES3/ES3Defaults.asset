@@ -30,21 +30,16 @@ MonoBehaviour:
     referenceMode: 2
     serializationDepthLimit: 64
     assemblyNames:
-    - Assembly-CSharp
     - Assembly-CSharp-firstpass
     - Cinemachine
     - ES3
-    - HiveMind.Core.CharacterSystem
-    - HiveMind.Core.Helpers
-    - HiveMind.Core.MVC
-    - HiveMind.Core.Pool
-    - HiveMind.Core.ProDebug
-    - HiveMind.Core.Utilities
-    - HiveMind.Samples.CharacterSystemSample
-    - HiveMind.Samples.HelpersSample
-    - HiveMind.Samples.MVCSample
-    - HiveMind.Samples.ProDebugSample
+    - HiveMind.Core.Helpers.Runtime
+    - HiveMind.Core.MVC.Runtime
+    - HiveMind.Core.ProDebug.Runtime
+    - HiveMind.Core.Utilities.Runtime
     - HiveMindGameTemplate.Runtime
+    - Lofelt.NiceVibrations
+    - Lofelt.NiceVibrations.Demo
     - PrimeTween.Debug
     - PrimeTween.Demo
     - PrimeTween.Runtime

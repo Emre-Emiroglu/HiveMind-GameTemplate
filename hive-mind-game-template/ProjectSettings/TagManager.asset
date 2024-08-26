@@ -4,22 +4,18 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Enemy
   - PostProcessing
-  - UI
-  - Ground
-  - Ability
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Player
+  - PostProcessing
   - Water
   - UI
-  - Enemy
-  - PostProcessing
-  - Ground
-  - Ability
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
