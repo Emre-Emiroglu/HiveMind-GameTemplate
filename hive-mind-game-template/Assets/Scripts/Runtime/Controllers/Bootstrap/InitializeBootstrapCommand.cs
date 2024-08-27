@@ -1,8 +1,9 @@
 using Cysharp.Threading.Tasks;
 using HiveMind.Core.MVC.Runtime.Controller;
+using HiveMindGameTemplate.Runtime.Enums.CrossScene;
 using HiveMindGameTemplate.Runtime.Models.Bootstrap;
 using HiveMindGameTemplate.Runtime.Signals.Bootstrap;
-using UnityEngine;
+using HiveMindGameTemplate.Runtime.Signals.CrossScene;
 using Zenject;
 
 namespace HiveMindGameTemplate.Runtime.Controllers.Bootstrap
@@ -29,9 +30,7 @@ namespace HiveMindGameTemplate.Runtime.Controllers.Bootstrap
             
             await UniTask.Delay(milisecondsDelay);
 
-            Debug.Log("Scene changings");
-
-            //TODO: Scene changings
+            _signalBus.Fire<LoadSceneSignal>(new(SceneID.MainMenu));
         }
         #endregion
     }

@@ -4,21 +4,20 @@ using HiveMindGameTemplate.Runtime.Interfaces.UI;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace HiveMindGameTemplate.Runtime
+namespace HiveMindGameTemplate.Runtime.Views.Bootstrap.LogoHolder
 {
     [RequireComponent(typeof(CanvasGroup))]
     public class LogoHolderPanelView : View, IUIPanel
     {
         #region Fields
         [Header("Logo Holder Panel View Fields")]
-        [SerializeField] private Image _logoImage;
         [SerializeField] private UIPanelVo _uiPanelVo;
+        [SerializeField] private Image _logoImage;
         #endregion
 
         #region Getters
-        public Image LogoImage => _logoImage;
-
         public UIPanelVo UIPanelVo => _uiPanelVo;
+        public Image LogoImage => _logoImage;
         #endregion
     }
 }

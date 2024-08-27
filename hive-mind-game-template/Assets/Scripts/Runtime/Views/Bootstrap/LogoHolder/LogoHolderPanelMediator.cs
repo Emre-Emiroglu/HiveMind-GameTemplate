@@ -2,7 +2,7 @@ using HiveMind.Core.MVC.Runtime.View;
 using HiveMindGameTemplate.Runtime.Models.Bootstrap;
 using HiveMindGameTemplate.Runtime.Utilities.Extensions;
 
-namespace HiveMindGameTemplate.Runtime.Views.Bootstrap
+namespace HiveMindGameTemplate.Runtime.Views.Bootstrap.LogoHolder
 {
     public class LogoHolderPanelMediator : Mediator<LogoHolderPanelView>
     {
