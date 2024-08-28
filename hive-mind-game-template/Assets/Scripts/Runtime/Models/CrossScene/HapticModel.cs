@@ -35,6 +35,8 @@ namespace HiveMindGameTemplate.Runtime.Models.CrossScene
         public void SetHaptic(bool isActive)
         {
             _isHapticMuted = isActive;
+            
+            Save();
         }
         public void Save()
         {

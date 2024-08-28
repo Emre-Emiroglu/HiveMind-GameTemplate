@@ -25,6 +25,8 @@ namespace HiveMindGameTemplate.Runtime.Controllers.Game
         #region Executes
         public override void Execute(InitializeGameSignal signal)
         {
+            _signalBus.Fire<ChangeLoadingScreenActivationSignal>(new(false, null));
+
             if (_tutorialModel.IsTutorialShowed)
                 _signalBus.Fire<PlayGameSignal>(new());
             else
