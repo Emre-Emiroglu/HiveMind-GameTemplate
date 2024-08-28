@@ -10,6 +10,9 @@ namespace HiveMindGameTemplate.Runtime.Installers.CrossScene
         {
             Container.Bind<LoadingScreenPanelView>().FromComponentInHierarchy().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<LoadingScreenPanelMediator>().AsSingle().NonLazy();
+
+            Container.Bind<AudioView>().FromComponentInHierarchy().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<AudioMediator>().AsSingle().NonLazy();
         }
         #endregion
     }

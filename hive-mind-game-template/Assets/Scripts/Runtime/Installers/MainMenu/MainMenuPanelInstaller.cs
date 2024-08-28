@@ -17,6 +17,7 @@ namespace HiveMindGameTemplate.Runtime.Installers.MainMenu
             Container.BindInterfacesAndSelfTo<ShopPanelMediator>().AsSingle().NonLazy();
 
             Container.Install<ViewMediatorInstaller<CurrencyView, CurrencyMediator>>();
+            Container.Install<ViewMediatorInstaller<SettingsButtonView, SettingsButtonMediator>>();
         }
         #endregion
     }

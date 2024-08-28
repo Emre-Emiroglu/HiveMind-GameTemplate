@@ -24,6 +24,7 @@ namespace HiveMindGameTemplate.Runtime.Controllers.MainMenu
         {
             _signalBus.Fire<ChangeLoadingScreenActivationSignal>(new(false, null));
             _signalBus.Fire<ChangeUIPanelSignal>(new(UIPanelTypes.StartPanel));
+            _signalBus.Fire<PlayAudioSignal>(new(AudioTypes.Music, MusicTypes.BackgroundMusic, SoundTypes.UIClick));
         }
         #endregion
     }
