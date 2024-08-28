@@ -4,7 +4,6 @@ using HiveMind.Core.MVC.Runtime.View;
 using HiveMindGameTemplate.Runtime.Signals.CrossScene;
 using HiveMindGameTemplate.Runtime.Enums.CrossScene;
 using HiveMindGameTemplate.Runtime.Models.CrossScene;
-using HiveMindGameTemplate.Runtime.Signals.MainMenu;
 using HiveMindGameTemplate.Runtime.Utilities.Extensions;
 
 namespace HiveMindGameTemplate.Runtime.Views.MainMenu
@@ -69,7 +68,7 @@ namespace HiveMindGameTemplate.Runtime.Views.MainMenu
         #region ButtonReceivers
         private void OnPlayButtonClicked()
         {
-            _signalBus.Fire<StartPanelPlayButtonClickedSignal>(new());
+            _signalBus.Fire<LoadSceneSignal>(new(SceneID.Game));
             _signalBus.Fire<PlayAudioSignal>(new(AudioTypes.Sound, MusicTypes.BackgroundMusic, SoundTypes.UIClick));
             _signalBus.Fire<PlayHapticSignal>(new(HapticPatterns.PresetType.LightImpact));
         }

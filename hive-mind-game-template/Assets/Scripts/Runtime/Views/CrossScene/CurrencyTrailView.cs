@@ -8,13 +8,13 @@ namespace HiveMindGameTemplate.Runtime.Views.CrossScene
     {
         #region Fields
         [Header("Currency Trail View Fields")]
-        [SerializeField] private Image iconImage;
-        [SerializeField] private TextMeshProUGUI amountText;
+        [SerializeField] private Image _iconImage;
+        [SerializeField] private TextMeshProUGUI _amountText;
         #endregion
 
         #region Getters
-        public Image IconImage => iconImage;
-        public TextMeshProUGUI AmountText => amountText;
+        public Image IconImage => _iconImage;
+        public TextMeshProUGUI AmountText => _amountText;
         #endregion
     }
 }

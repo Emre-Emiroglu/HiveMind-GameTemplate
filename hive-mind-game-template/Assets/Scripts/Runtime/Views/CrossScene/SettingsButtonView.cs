@@ -9,7 +9,6 @@ namespace HiveMindGameTemplate.Runtime.Views.CrossScene
     public class SettingsButtonView: View
     {
         #region Fields
-        [SerializeField] private bool _inGameElement;
         [SerializeField] private GameObject _verticalGroup;
         [SerializeField] private Button _button;
         [SerializeField] private Button _exitButton;
@@ -19,7 +18,6 @@ namespace HiveMindGameTemplate.Runtime.Views.CrossScene
         #endregion
 
         #region Getters
-        public bool InGameElement => _inGameElement;
         public GameObject VerticalGroup => _verticalGroup;
         public Button Button => _button;
         public Button ExitButton => _exitButton;

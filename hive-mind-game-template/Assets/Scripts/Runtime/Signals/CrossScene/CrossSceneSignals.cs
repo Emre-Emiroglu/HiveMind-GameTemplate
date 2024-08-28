@@ -155,27 +155,6 @@ namespace HiveMindGameTemplate.Runtime.Signals.CrossScene
         }
         #endregion
     }
-    public readonly struct GameOverSignal
-    {
-        #region ReadonlyFields
-        private readonly bool _isSuccess;
-        private readonly bool _quickExit;
-        #endregion
-
-        #region Getters
-        public bool IsSuccess => _isSuccess;
-        public bool QuickExit => _quickExit;
-        #endregion
-
-        #region Constructor
-        public GameOverSignal(bool isSuccess, bool quickExit)
-        {
-            _isSuccess = isSuccess;
-            _quickExit = quickExit;
-        }
-        #endregion
-    } // Has Command
-    public readonly struct GameExitSignal { } // Has Command
     public readonly struct ChangeUIPanelSignal
     {
         #region ReadonlyFields

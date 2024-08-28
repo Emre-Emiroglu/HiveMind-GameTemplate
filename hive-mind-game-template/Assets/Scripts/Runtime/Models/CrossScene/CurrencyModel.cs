@@ -25,7 +25,7 @@ namespace HiveMindGameTemplate.Runtime.Models.CrossScene
         {
             _currencyValues = ES3.Load(nameof(_currencyValues), CurrencyPath, new Dictionary<CurrencyTypes, int>(_settings.DefaultCurrencyValues));
 
-            SaveCurrencyValues();
+            Save();
         }
         #endregion
 
@@ -39,9 +39,9 @@ namespace HiveMindGameTemplate.Runtime.Models.CrossScene
             int lasValue = _currencyValues[currencyType];
             _currencyValues[currencyType] = isSet ? amount : lasValue + amount;
 
-            SaveCurrencyValues();
+            Save();
         }
-        private void SaveCurrencyValues() => ES3.Save(nameof(_currencyValues), _currencyValues, CurrencyPath);
+        public void Save() => ES3.Save(nameof(_currencyValues), _currencyValues, CurrencyPath);
         #endregion
     }
 }

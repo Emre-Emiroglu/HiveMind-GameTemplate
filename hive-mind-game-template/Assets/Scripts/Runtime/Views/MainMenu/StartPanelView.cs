@@ -12,15 +12,15 @@ namespace HiveMindGameTemplate.Runtime.Views.MainMenu
     {
         #region Fields
         [Header("Main Scene Panel View Fields")]
-        [SerializeField] private UIPanelVo uiPanelVo;
-        [SerializeField] private TextMeshProUGUI levelText;
-        [SerializeField] private Button playButton;
+        [SerializeField] private UIPanelVo _uiPanelVo;
+        [SerializeField] private TextMeshProUGUI _levelText;
+        [SerializeField] private Button _playButton;
         #endregion
 
         #region Getters
-        public UIPanelVo UIPanelVo => uiPanelVo;
-        public TextMeshProUGUI LevelText => levelText;
-        public Button PlayButton => playButton;
+        public UIPanelVo UIPanelVo => _uiPanelVo;
+        public TextMeshProUGUI LevelText => _levelText;
+        public Button PlayButton => _playButton;
         #endregion
     }
 }

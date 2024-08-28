@@ -3,7 +3,6 @@ using Lofelt.NiceVibrations;
 using HiveMind.Core.MVC.Runtime.View;
 using HiveMindGameTemplate.Runtime.Signals.CrossScene;
 using HiveMindGameTemplate.Runtime.Enums.CrossScene;
-using HiveMindGameTemplate.Runtime.Signals.MainMenu;
 using HiveMindGameTemplate.Runtime.Utilities.Extensions;
 
 namespace HiveMindGameTemplate.Runtime.Views.MainMenu
@@ -61,7 +60,7 @@ namespace HiveMindGameTemplate.Runtime.Views.MainMenu
         #region ButtonReceivers
         private void OnHomeButtonClicked()
         {
-            _signalBus.Fire<ReturnToStartPanelSignal>(new());
+            _signalBus.Fire<ChangeUIPanelSignal>(new(UIPanelTypes.StartPanel));
             _signalBus.Fire<PlayAudioSignal>(new(AudioTypes.Sound, MusicTypes.BackgroundMusic, SoundTypes.UIClick));
             _signalBus.Fire<PlayHapticSignal>(new(HapticPatterns.PresetType.LightImpact));
         }

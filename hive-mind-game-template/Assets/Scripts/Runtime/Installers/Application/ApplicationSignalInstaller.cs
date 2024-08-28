@@ -10,10 +10,13 @@ namespace HiveMindGameTemplate.Runtime.Installers.Application
         public override void InstallBindings()
         {
             Container.DeclareSignal<InitializeApplicationSignal>();
+            Container.DeclareSignal<AppQuitSignal>();
 
             Container.BindInterfacesAndSelfTo<InitializeApplicationCommand>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<AppQuitCommand>().AsSingle().NonLazy();
 
             Container.BindSignal<InitializeApplicationSignal>().ToMethod<InitializeApplicationCommand>((x, s) => x.Execute(s)).FromResolve();
+            Container.BindSignal<AppQuitSignal>().ToMethod<AppQuitCommand>((x, s) => x.Execute(s)).FromResolve();
         }
         #endregion
     }

@@ -390,7 +390,6 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  _inGameElement: 1
   _verticalGroup: {fileID: 7148278365042805344}
   _button: {fileID: 9127625662075627020}
   _exitButton: {fileID: 7772006429488684042}

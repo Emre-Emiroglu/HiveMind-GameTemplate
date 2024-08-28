@@ -75,11 +75,11 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  uiPanelVo:
+  _uiPanelVo:
     _uiPanelType: 5
     canvasGroup: {fileID: 6682637539731219171}
     playableDirector: {fileID: 5096520973879491629}
-  homeButton: {fileID: 5019419280356225949}
+  _homeButton: {fileID: 5019419280356225949}
 --- !u!1 &2192645056930119446
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,6 +430,30 @@ PrefabInstance:
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 8501194876300558783, guid: 26bee0315e89ab94388e5ebbcadfb717, type: 3}
+    - target: {fileID: 8501194876300558783, guid: 26bee0315e89ab94388e5ebbcadfb717, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8501194876300558783, guid: 26bee0315e89ab94388e5ebbcadfb717, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[0]
+      value: '"path":"_currencyButtons.{0es}","value":$eref:0'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8501194876300558783, guid: 26bee0315e89ab94388e5ebbcadfb717, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[1]
+      value: '"path":"_currencyTexts.{0es}","value":$eref:1'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8501194876300558783, guid: 26bee0315e89ab94388e5ebbcadfb717, type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8501194876300558783, guid: 26bee0315e89ab94388e5ebbcadfb717, type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 1772783081889341949}
+    - target: {fileID: 8501194876300558783, guid: 26bee0315e89ab94388e5ebbcadfb717, type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 5978833885645915874}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -440,6 +464,28 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 804076184579160475, guid: 26bee0315e89ab94388e5ebbcadfb717, type: 3}
   m_PrefabInstance: {fileID: 1774354977041635936}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1772783081889341949 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1678547908656029, guid: 26bee0315e89ab94388e5ebbcadfb717, type: 3}
+  m_PrefabInstance: {fileID: 1774354977041635936}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5978833885645915874 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5361205290379058306, guid: 26bee0315e89ab94388e5ebbcadfb717, type: 3}
+  m_PrefabInstance: {fileID: 1774354977041635936}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &8223090121243907632 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 7674572017609673808, guid: 26bee0315e89ab94388e5ebbcadfb717, type: 3}
@@ -537,14 +583,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5569155614231607013, guid: a376a8e8f34670f44acc03f8e94e73a2, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-    - target: {fileID: 5569155614231607013, guid: a376a8e8f34670f44acc03f8e94e73a2, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -651,10 +689,6 @@ PrefabInstance:
     - target: {fileID: 1758851515021347007, guid: 21bfd7883df14f74a8e0d7e99ae1bafd, type: 3}
       propertyPath: m_Name
       value: HomeButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 1963764310500689350, guid: 21bfd7883df14f74a8e0d7e99ae1bafd, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

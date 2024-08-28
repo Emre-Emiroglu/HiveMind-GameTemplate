@@ -5,7 +5,10 @@ using HiveMindGameTemplate.Runtime.Signals.CrossScene;
 using Lofelt.NiceVibrations;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using Zenject;
+using HiveMindGameTemplate.Runtime.Signals.Game;
+using HiveMindGameTemplate.Runtime.Signals.Application;
 
 namespace HiveMindGameTemplate.Runtime.Views.CrossScene
 {
@@ -84,10 +87,21 @@ namespace HiveMindGameTemplate.Runtime.Views.CrossScene
         }
         private void ExitButtonClicked()
         {
-            if (_view.InGameElement)
-                _signalBus.Fire<GameOverSignal>(new(false, true));
-            else
-                _signalBus.Fire<GameExitSignal>(new());
+            SceneID currentSceneID = (SceneID)SceneManager.GetActiveScene().buildIndex;
+
+            switch (currentSceneID)
+            {
+                case SceneID.Bootstrap:
+                    break;
+                case SceneID.MainMenu:
+                    _signalBus.Fire<AppQuitSignal>(new());
+                    break;
+                case SceneID.Game:
+                    _signalBus.Fire<GameExitSignal>(new());
+                    _signalBus.Fire<PlayAudioSignal>(new(AudioTypes.Sound, MusicTypes.BackgroundMusic, SoundTypes.UIClick));
+                    _signalBus.Fire<PlayHapticSignal>(new(HapticPatterns.PresetType.LightImpact));
+                    break;
+            }
         }
         private void SettingsButtonClicked(SettingsTypes settingsType)
         {

@@ -31,6 +31,9 @@ namespace HiveMindGameTemplate.Runtime.Models.CrossScene
 
             _isMusicMuted = ES3.Load(nameof(_isMusicMuted), AUDIO_PATH, false);
             _isSoundMuted = ES3.Load(nameof(_isSoundMuted), AUDIO_PATH, false);
+
+            SetMusic(_isMusicMuted);
+            SetSound(_isSoundMuted);
         }
         #endregion
 
@@ -39,21 +42,22 @@ namespace HiveMindGameTemplate.Runtime.Models.CrossScene
         #endregion
 
         #region Executes
-        public void SetsOnStart()
-        {
-            SetMusic(_isMusicMuted);
-            SetSound(_isSoundMuted);
-        }
         public void SetMusic(bool isActive)
         {
             _isMusicMuted = isActive;
             _audioMixer.SetFloat(MUSIC_PARAM, _isMusicMuted ? -80 : -20);
-            ES3.Save(nameof(_isMusicMuted), _isMusicMuted, AUDIO_PATH);
+
+            Save();
         }
         public void SetSound(bool isActive)
         {
             _isSoundMuted = isActive;
             _audioMixer.SetFloat(SOUND_PARAM, _isSoundMuted ? -80 : -10);
+
+            Save();
+        }
+        public void Save()
+        {
             ES3.Save(nameof(_isSoundMuted), _isSoundMuted, AUDIO_PATH);
         }
         #endregion

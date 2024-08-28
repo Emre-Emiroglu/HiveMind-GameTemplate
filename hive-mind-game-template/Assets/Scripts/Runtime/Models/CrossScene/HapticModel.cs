@@ -35,6 +35,9 @@ namespace HiveMindGameTemplate.Runtime.Models.CrossScene
         public void SetHaptic(bool isActive)
         {
             _isHapticMuted = isActive;
+        }
+        public void Save()
+        {
             ES3.Save(nameof(_isHapticMuted), _isHapticMuted, HAPTIC_PATH);
         }
         #endregion

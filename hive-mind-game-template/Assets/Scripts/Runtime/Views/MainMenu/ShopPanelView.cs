@@ -11,13 +11,13 @@ namespace HiveMindGameTemplate.Runtime.Views.MainMenu
     {
         #region Fields
         [Header("Shop Panel View Fields")]
-        [SerializeField] private UIPanelVo uiPanelVo;
-        [SerializeField] private Button homeButton;
+        [SerializeField] private UIPanelVo _uiPanelVo;
+        [SerializeField] private Button _homeButton;
         #endregion
 
         #region Getters
-        public UIPanelVo UIPanelVo => uiPanelVo;
-        public Button HomeButton => homeButton;
+        public UIPanelVo UIPanelVo => _uiPanelVo;
+        public Button HomeButton => _homeButton;
         #endregion
     }
 }

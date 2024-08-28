@@ -4,7 +4,6 @@ using HiveMind.Core.Utilities.Runtime.TextFormatter;
 using HiveMindGameTemplate.Runtime.Enums.CrossScene;
 using HiveMindGameTemplate.Runtime.Models.CrossScene;
 using HiveMindGameTemplate.Runtime.Signals.CrossScene;
-using HiveMindGameTemplate.Runtime.Signals.MainMenu;
 using Lofelt.NiceVibrations;
 using Zenject;
 
@@ -56,7 +55,7 @@ namespace HiveMindGameTemplate.Runtime.Views.CrossScene
         #region ButtonReceivers
         private void ButtonClicked()
         {
-            _signalBus.Fire<OpenShopPanelSignal>(new());
+            _signalBus.Fire<ChangeUIPanelSignal>(new(UIPanelTypes.ShopPanel));
             _signalBus.Fire<PlayAudioSignal>(new(AudioTypes.Sound, MusicTypes.BackgroundMusic, SoundTypes.UIClick));
             _signalBus.Fire<PlayHapticSignal>(new(HapticPatterns.PresetType.LightImpact));
         }
