@@ -46,7 +46,7 @@ namespace HiveMindGameTemplate.Runtime.Views.CrossScene
         #region Executes
         private void SetVisual(CurrencyTrailData data)
         {
-            transform.position = data.StartPoint.position;
+            transform.position = data.StartPosition;
             
             _view.IconImage.sprite = _currencyModel.Settings.CurrencyIcons[data.CurrencyType];
             _view.IconImage.preserveAspect = true;
@@ -55,7 +55,7 @@ namespace HiveMindGameTemplate.Runtime.Views.CrossScene
         }
         private void PlayTween(CurrencyTrailData data)
         {
-            Tween.Position(transform, data.TargetPoint.position, data.Duration, data.Ease)
+            Tween.Position(transform, data.TargetPosition, data.Duration, data.Ease)
                 .OnComplete(() => TweenCompleteCallback(data));
         }
         private void TweenCompleteCallback(CurrencyTrailData data)

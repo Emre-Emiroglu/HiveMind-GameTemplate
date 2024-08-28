@@ -11,8 +11,8 @@ namespace HiveMindGameTemplate.Runtime.Data.ValueObjects.CrossScene
         private readonly int _amount;
         private readonly float _duration;
         private readonly Ease _ease;
-        private readonly Transform _startPoint;
-        private readonly Transform _targetPoint;
+        private readonly Vector3 _startPosition;
+        private readonly Vector3 _targetPosition;
         #endregion
 
         #region Getters
@@ -20,19 +20,19 @@ namespace HiveMindGameTemplate.Runtime.Data.ValueObjects.CrossScene
         public int Amount => _amount;
         public float Duration => _duration;
         public Ease Ease => _ease;
-        public Transform StartPoint => _startPoint;
-        public Transform TargetPoint => _targetPoint;
+        public Vector3 StartPosition => _startPosition;
+        public Vector3 TargetPosition => _targetPosition;
         #endregion
 
         #region Constructor
-        public CurrencyTrailData(CurrencyTypes currencyType, int amount, float duration, Ease ease, Transform startPoint, Transform targetPoint)
+        public CurrencyTrailData(CurrencyTypes currencyType, int amount, float duration, Ease ease, Vector3 startPosition, Vector3 targetPosition)
         {
             _currencyType = currencyType;
             _amount = amount;
             _duration = duration;
             _ease = ease;
-            _startPoint = startPoint;
-            _targetPoint = targetPoint;
+            _startPosition = startPosition;
+            _targetPosition = targetPosition;
         }
         #endregion
     }
