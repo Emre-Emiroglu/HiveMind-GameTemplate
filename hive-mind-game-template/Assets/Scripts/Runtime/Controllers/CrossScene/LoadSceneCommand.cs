@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Zenject;
 
-namespace HiveMindGameTemplate.Runtime
+namespace HiveMindGameTemplate.Runtime.Controllers.CrossScene
 {
     public class LoadSceneCommand : Command<LoadSceneSignal>
     {

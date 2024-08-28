@@ -1,4 +1,4 @@
-using HiveMindGameTemplate.Runtime.Views.Bootstrap.LogoHolder;
+using HiveMindGameTemplate.Runtime.Views.Bootstrap;
 using Zenject;
 
 namespace HiveMindGameTemplate.Runtime.Installers.Bootstrap

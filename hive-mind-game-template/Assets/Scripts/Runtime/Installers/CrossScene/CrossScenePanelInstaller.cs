@@ -1,4 +1,4 @@
-﻿using HiveMindGameTemplate.Runtime.Views.CrossScene.LoadingScreen;
+﻿using HiveMindGameTemplate.Runtime.Views.CrossScene;
 using Zenject;
 
 namespace HiveMindGameTemplate.Runtime.Installers.CrossScene
