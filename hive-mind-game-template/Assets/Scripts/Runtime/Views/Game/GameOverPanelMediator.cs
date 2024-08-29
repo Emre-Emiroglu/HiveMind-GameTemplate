@@ -38,7 +38,8 @@ namespace HiveMindGameTemplate.Runtime.Views.Game
                 _signalBus.Subscribe<ChangeUIPanelSignal>(OnChangeUIPanelSignal);
                 _signalBus.Subscribe<SetupGameOverPanelSignal>(OnSetupGameOverPanelSignal);
 
-                _view.HomeButton.onClick.AddListener(OnHomeButtonClicked);
+                _view.FailHomeButton.onClick.AddListener(OnHomeButtonClicked);
+                _view.SuccessHomeButton.onClick.AddListener(OnHomeButtonClicked);
                 _view.RestartButton.onClick.AddListener(OnRestartButtonClicked);
                 _view.NextButton.onClick.AddListener(OnNextButtonClicked);
             }
@@ -47,7 +48,8 @@ namespace HiveMindGameTemplate.Runtime.Views.Game
                 _signalBus.Unsubscribe<ChangeUIPanelSignal>(OnChangeUIPanelSignal);
                 _signalBus.Unsubscribe<SetupGameOverPanelSignal>(OnSetupGameOverPanelSignal);
 
-                _view.HomeButton.onClick.RemoveListener(OnHomeButtonClicked);
+                _view.FailHomeButton.onClick.RemoveListener(OnHomeButtonClicked);
+                _view.SuccessHomeButton.onClick.RemoveListener(OnHomeButtonClicked);
                 _view.RestartButton.onClick.RemoveListener(OnRestartButtonClicked);
                 _view.NextButton.onClick.RemoveListener(OnNextButtonClicked);
             }
