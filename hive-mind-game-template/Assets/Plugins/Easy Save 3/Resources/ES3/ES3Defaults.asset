@@ -31,7 +31,6 @@ MonoBehaviour:
     serializationDepthLimit: 64
     assemblyNames:
     - Assembly-CSharp-firstpass
-    - Cinemachine
     - ES3
     - HiveMind.Core.Helpers.Runtime
     - HiveMind.Core.MVC.Runtime

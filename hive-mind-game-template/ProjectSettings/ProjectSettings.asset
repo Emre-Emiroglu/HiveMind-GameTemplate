@@ -161,6 +161,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
+    Android: com.LeoGames.HiveMindGameTemplate
     Standalone: com.LeoGames.HiveMind-GameTemplate
   buildNumber:
     Standalone: 0
