@@ -1,10 +1,11 @@
 using HiveMind.Core.MVC.Runtime.Model;
 using HiveMindGameTemplate.Runtime.Data.ScriptableObjects.CrossScene;
 using UnityEngine.Audio;
+using Zenject;
 
 namespace HiveMindGameTemplate.Runtime.Models.CrossScene
 {
-    public class AudioModel : Model<AudioSettings>
+    public class AudioModel : Model<AudioSettings>, IInitializable
     {
         #region Constants
         private const string ResourcePath = "Data/CrossScene/AudioSettings";
@@ -31,14 +32,19 @@ namespace HiveMindGameTemplate.Runtime.Models.CrossScene
 
             _isMusicMuted = ES3.Load(nameof(_isMusicMuted), AUDIO_PATH, false);
             _isSoundMuted = ES3.Load(nameof(_isSoundMuted), AUDIO_PATH, false);
-
-            SetMusic(_isMusicMuted);
-            SetSound(_isSoundMuted);
         }
         #endregion
 
         #region PostConstruct
         public override void PostConstruct() { }
+        #endregion
+
+        #region Core
+        public void Initialize()
+        {
+            SetMusic(_isMusicMuted);
+            SetSound(_isSoundMuted);
+        }
         #endregion
 
         #region Executes
@@ -58,6 +64,7 @@ namespace HiveMindGameTemplate.Runtime.Models.CrossScene
         }
         public void Save()
         {
+            ES3.Save(nameof(_isMusicMuted), _isMusicMuted, AUDIO_PATH);
             ES3.Save(nameof(_isSoundMuted), _isSoundMuted, AUDIO_PATH);
         }
         #endregion

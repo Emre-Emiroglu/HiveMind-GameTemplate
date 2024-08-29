@@ -23,6 +23,8 @@ namespace HiveMindGameTemplate.Runtime.Models.CrossScene
         public LevelModel() : base(ResourcePath)
         {
             _levelPersistentData = ES3.Load(nameof(_levelPersistentData), LEVEL_PERSISTENT_DATA_PATH, new LevelPersistentData(0));
+
+            Save();
         }
         #endregion
 
