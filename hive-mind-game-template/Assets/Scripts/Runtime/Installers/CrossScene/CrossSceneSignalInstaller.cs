@@ -14,6 +14,7 @@ namespace HiveMindGameTemplate.Runtime.Installers.CrossScene
             Container.DeclareSignal<PlayAudioSignal>();
             Container.DeclareSignal<PlayHapticSignal>();
             Container.DeclareSignal<ChangeCurrencySignal>();
+            Container.DeclareSignal<SpawnCurrencyTrailSignal>();
             Container.DeclareSignal<RefreshCurrencyVisualSignal>();
             Container.DeclareSignal<SettingsButtonPressedSignal>();
             Container.DeclareSignal<SettingsButtonRefreshSignal>();

@@ -1,5 +1,6 @@
 using HiveMindGameTemplate.Runtime.Data.ValueObjects.CrossScene;
 using HiveMindGameTemplate.Runtime.Factories;
+using HiveMindGameTemplate.Runtime.Handlers.CrossScene;
 using HiveMindGameTemplate.Runtime.Views.CrossScene;
 using UnityEngine;
 using Zenject;
@@ -20,6 +21,8 @@ namespace HiveMindGameTemplate.Runtime.Installers.CrossScene
             Container.Install<CrossSceneModelInstaller>();
             Container.Install<CrossScenePanelInstaller>();
             Container.Install<CrossSceneSignalInstaller>();
+
+            Container.BindInterfacesAndSelfTo<CurrencyTrailSpawnHandler>().AsSingle().NonLazy();
 
             Container.BindFactory<CurrencyTrailData, CurrencyTrailMediator, CurrencyTrailFactory>()
               .FromPoolableMemoryPool<CurrencyTrailData, CurrencyTrailMediator, CurrencyTrailPool>

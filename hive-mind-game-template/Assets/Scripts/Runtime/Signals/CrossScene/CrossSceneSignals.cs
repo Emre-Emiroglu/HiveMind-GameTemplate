@@ -1,3 +1,4 @@
+using HiveMindGameTemplate.Runtime.Data.ValueObjects.CrossScene;
 using HiveMindGameTemplate.Runtime.Enums.CrossScene;
 using Lofelt.NiceVibrations;
 using UnityEngine;
@@ -83,7 +84,7 @@ namespace HiveMindGameTemplate.Runtime.Signals.CrossScene
     } // Has Command
     public readonly struct ChangeCurrencySignal
     {
-        #region Fields
+        #region ReadonlyFields
         private readonly CurrencyTypes _currencyType;
         private readonly int _amount;
         private readonly bool _isSet;
@@ -104,6 +105,23 @@ namespace HiveMindGameTemplate.Runtime.Signals.CrossScene
         }
         #endregion
     } // Has Command
+    public readonly struct SpawnCurrencyTrailSignal
+    {
+        #region ReadonlyFields
+        private readonly CurrencyTrailData _currencyTrailData;
+        #endregion
+
+        #region Getters
+        public CurrencyTrailData CurrencyTrailData => _currencyTrailData;
+        #endregion
+
+        #region Constructor
+        public SpawnCurrencyTrailSignal(CurrencyTrailData currencyTrailData)
+        {
+            _currencyTrailData = currencyTrailData;
+        }
+        #endregion
+    }
     public readonly struct RefreshCurrencyVisualSignal
     {
         #region Fields

@@ -253,6 +253,10 @@ PrefabInstance:
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 7983836529707657877, guid: d4f24336811bd4b43bf6cc0fc2a4ceda, type: 3}
+    - target: {fileID: 8178549593489489103, guid: d4f24336811bd4b43bf6cc0fc2a4ceda, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
