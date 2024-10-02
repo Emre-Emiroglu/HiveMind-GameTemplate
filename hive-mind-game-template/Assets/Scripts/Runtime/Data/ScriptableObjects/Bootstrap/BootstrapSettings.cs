@@ -7,13 +7,13 @@ namespace HiveMindGameTemplate.Runtime.Data.ScriptableObjects.Bootstrap
     {
         #region Fields
         [Header("Bootstrap Settings Fields")]
-        [SerializeField] private Sprite _logoSprite;
-        [SerializeField] private float _sceneActivationDuration;
+        [SerializeField] private Sprite logoSprite;
+        [SerializeField] private float sceneActivationDuration;
         #endregion
 
         #region Getters
-        public Sprite LogoSprite => _logoSprite;
-        public float SceneActivationDuration => _sceneActivationDuration;
+        public Sprite LogoSprite => logoSprite;
+        public float SceneActivationDuration => sceneActivationDuration;
         #endregion
     }
 }

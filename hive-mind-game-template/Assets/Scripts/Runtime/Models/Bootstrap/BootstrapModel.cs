@@ -6,11 +6,11 @@ namespace HiveMindGameTemplate.Runtime.Models.Bootstrap
     public class BootstrapModel : Model<BootstrapSettings>
     {
         #region Constants
-        private const string RESOURCE_PATH = "Data/Bootstrap/BootstrapSettings";
+        private const string ResourcePath = "Data/Bootstrap/BootstrapSettings";
         #endregion
 
         #region Constructor
-        public BootstrapModel() : base(RESOURCE_PATH) { }
+        public BootstrapModel() : base(ResourcePath) { }
         #endregion
 
         #region PostConstruct

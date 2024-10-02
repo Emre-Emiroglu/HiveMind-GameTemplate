@@ -6,11 +6,11 @@ namespace HiveMindGameTemplate.Runtime.Models.Game
     public class GameModel : Model<GameSettings>
     {
         #region Constants
-        private const string RESOURCE_PATH = "Data/Game/GameSettings";
+        private const string ResourcePath = "Data/Game/GameSettings";
         #endregion
 
         #region Constructor
-        public GameModel() : base(RESOURCE_PATH) { }
+        public GameModel() : base(ResourcePath) { }
         #endregion
 
         #region PostConstruct

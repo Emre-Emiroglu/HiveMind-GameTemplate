@@ -7,7 +7,7 @@ namespace HiveMindGameTemplate.Runtime.Models.Game
     {
         #region Constants
         private const string ResourcePath = "Data/Game/TutorialSettings";
-        private const string TUTORIAL_PATH = "TUTORIAL_PATH";
+        private const string TutorialPath = "TUTORIAL_PATH";
         #endregion
 
         #region Fields
@@ -21,7 +21,7 @@ namespace HiveMindGameTemplate.Runtime.Models.Game
         #region Constructor
         public TutorialModel() : base(ResourcePath)
         {
-            _isTutorialShowed = ES3.Load(nameof(_isTutorialShowed), TUTORIAL_PATH, false);
+            _isTutorialShowed = ES3.Load(nameof(_isTutorialShowed), TutorialPath, false);
         }
         #endregion
 
@@ -33,7 +33,7 @@ namespace HiveMindGameTemplate.Runtime.Models.Game
         public void SetTutorial(bool isActive)
         {
             _isTutorialShowed = isActive;
-            ES3.Save(nameof(_isTutorialShowed), _isTutorialShowed, TUTORIAL_PATH);
+            ES3.Save(nameof(_isTutorialShowed), _isTutorialShowed, TutorialPath);
         }
         #endregion
     }

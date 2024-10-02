@@ -6,11 +6,11 @@ namespace HiveMindGameTemplate.Runtime.Models.MainMenu
     public class MainMenuModel : Model<MainMenuSettings>
     {
         #region Constants
-        private const string RESOURCE_PATH = "Data/MainMenu/MainMenuSettings";
+        private const string ResourcePath = "Data/MainMenu/MainMenuSettings";
         #endregion
 
         #region Constructor
-        public MainMenuModel() : base(RESOURCE_PATH) { }
+        public MainMenuModel() : base(ResourcePath) { }
         #endregion
 
         #region PostConstruct

@@ -3,7 +3,7 @@ using HiveMindGameTemplate.Runtime.Models.CrossScene;
 using HiveMindGameTemplate.Runtime.Signals.CrossScene;
 using Zenject;
 
-namespace HiveMindGameTemplate.Runtime.Handlers.CrossScene
+namespace HiveMindGameTemplate.Runtime.Handler.CrossScene
 {
     public class CurrencyTrailSpawnHandler : SpawnHandler<CurrencyModel, CurrencyTrailFactory>
     {
@@ -16,12 +16,12 @@ namespace HiveMindGameTemplate.Runtime.Handlers.CrossScene
         #endregion
 
         #region Subscriptions
-        protected override void SetSubscriptions(bool isSub)
+        protected sealed override void SetSubscriptions(bool isSub)
         {
             if (isSub)
-                signalBus.Subscribe<SpawnCurrencyTrailSignal>(OnSpawnCurrencyTrailSignal);
+                SignalBus.Subscribe<SpawnCurrencyTrailSignal>(OnSpawnCurrencyTrailSignal);
             else
-                signalBus.Unsubscribe<SpawnCurrencyTrailSignal>(OnSpawnCurrencyTrailSignal);
+                SignalBus.Unsubscribe<SpawnCurrencyTrailSignal>(OnSpawnCurrencyTrailSignal);
         }
         #endregion
 
@@ -32,7 +32,7 @@ namespace HiveMindGameTemplate.Runtime.Handlers.CrossScene
         #region Executes
         private void SpawnCurrencyTrailProcess(SpawnCurrencyTrailSignal signal)
         {
-            factory.Create(signal.CurrencyTrailData);
+            Factory.Create(signal.CurrencyTrailData);
         }
         #endregion
     }

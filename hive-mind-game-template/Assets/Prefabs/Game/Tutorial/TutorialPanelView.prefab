@@ -259,11 +259,11 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  _uiPanelVo:
-    _uiPanelType: 6
+  uiPanelVo:
+    uiPanelType: 6
     canvasGroup: {fileID: 7532042550793679808}
     playableDirector: {fileID: 6375861073465393916}
-  _closeButton: {fileID: 1421486478703719022}
+  closeButton: {fileID: 1421486478703719022}
 --- !u!1 &7555438921152760122
 GameObject:
   m_ObjectHideFlags: 0

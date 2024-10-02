@@ -11,13 +11,13 @@ namespace HiveMindGameTemplate.Runtime.Views.Bootstrap
     {
         #region Fields
         [Header("Logo Holder Panel View Fields")]
-        [SerializeField] private UIPanelVo _uiPanelVo;
-        [SerializeField] private Image _logoImage;
+        [SerializeField] private UIPanelVo uiPanelVo;
+        [SerializeField] private Image logoImage;
         #endregion
 
         #region Getters
-        public UIPanelVo UIPanelVo => _uiPanelVo;
-        public Image LogoImage => _logoImage;
+        public UIPanelVo UIPanelVo => uiPanelVo;
+        public Image LogoImage => logoImage;
         #endregion
     }
 }

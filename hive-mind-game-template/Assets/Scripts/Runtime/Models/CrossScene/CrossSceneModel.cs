@@ -6,11 +6,11 @@ namespace HiveMindGameTemplate.Runtime.Models.CrossScene
     public class CrossSceneModel : Model<CrossSceneSettings>
     {
         #region Constants
-        private const string RESOURCE_PATH = "Data/CrossScene/CrossSceneSettings";
+        private const string ResourcePath = "Data/CrossScene/CrossSceneSettings";
         #endregion
 
         #region Constructor
-        public CrossSceneModel() : base(RESOURCE_PATH) { }
+        public CrossSceneModel() : base(ResourcePath) { }
         #endregion
 
         #region PostConstruct

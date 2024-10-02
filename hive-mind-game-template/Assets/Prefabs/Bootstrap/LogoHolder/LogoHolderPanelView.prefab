@@ -324,10 +324,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5c0e926656665448bcd6ad0435d752c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _uiPanelVo:
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  uiPanelVo:
+    uiPanelType: 0
     canvasGroup: {fileID: 8159858445768056978}
     playableDirector: {fileID: 1383339674852695248}
-  _logoImage: {fileID: 4643709002307081851}
+  logoImage: {fileID: 4643709002307081851}
 --- !u!1 &8076753881771100143
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,13 +11,13 @@ namespace HiveMindGameTemplate.Runtime.Views.Game
     {
         #region Fields
         [Header("Shop Panel View Fields")]
-        [SerializeField] private UIPanelVo _uiPanelVo;
-        [SerializeField] private Button _closeButton;
+        [SerializeField] private UIPanelVo uiPanelVo;
+        [SerializeField] private Button closeButton;
         #endregion
 
         #region Getters
-        public UIPanelVo UIPanelVo => _uiPanelVo;
-        public Button CloseButton => _closeButton;
+        public UIPanelVo UIPanelVo => uiPanelVo;
+        public Button CloseButton => closeButton;
         #endregion
     }
 }

@@ -12,23 +12,23 @@ namespace HiveMindGameTemplate.Runtime.Views.Game
     {
         #region Fields
         [Header("In Game Panel View Fields")]
-        [SerializeField] private UIPanelVo _uiPanelVo;
-        [SerializeField] private TextMeshProUGUI _levelText;
-        [SerializeField] private Transform _currencyTrailStartTransform;
-        [SerializeField] private Transform _currencyTrailTargetTransform;
-        [SerializeField] private Button _winButton;
-        [SerializeField] private Button _failButton;
-        [SerializeField] private Button _addCurrencyButton;
+        [SerializeField] private UIPanelVo uiPanelVo;
+        [SerializeField] private TextMeshProUGUI levelText;
+        [SerializeField] private Transform currencyTrailStartTransform;
+        [SerializeField] private Transform currencyTrailTargetTransform;
+        [SerializeField] private Button winButton;
+        [SerializeField] private Button failButton;
+        [SerializeField] private Button addCurrencyButton;
         #endregion
 
         #region Getters
-        public UIPanelVo UIPanelVo => _uiPanelVo;
-        public TextMeshProUGUI LevelText => _levelText;
-        public Transform CurrencyTrailStartTransform => _currencyTrailStartTransform;
-        public Transform CurrencyTrailTargetTransform => _currencyTrailTargetTransform;
-        public Button WinButton => _winButton;
-        public Button FailButton => _failButton;
-        public Button AddCurrencyButton => _addCurrencyButton;
+        public UIPanelVo UIPanelVo => uiPanelVo;
+        public TextMeshProUGUI LevelText => levelText;
+        public Transform CurrencyTrailStartTransform => currencyTrailStartTransform;
+        public Transform CurrencyTrailTargetTransform => currencyTrailTargetTransform;
+        public Button WinButton => winButton;
+        public Button FailButton => failButton;
+        public Button AddCurrencyButton => addCurrencyButton;
         #endregion
     }
 }

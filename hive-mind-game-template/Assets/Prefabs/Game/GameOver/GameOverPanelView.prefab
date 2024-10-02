@@ -73,19 +73,19 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  _uiPanelVo:
-    _uiPanelType: 4
+  uiPanelVo:
+    uiPanelType: 4
     canvasGroup: {fileID: 9045156321306376166}
     playableDirector: {fileID: 5659509486452589681}
-  _gameOverPanels:
+  gameOverPanels:
     _keyData: 0001
     _valueData:
     - {fileID: 5014553324853434728}
     - {fileID: 8437217408435955220}
-  _failHomeButton: {fileID: 4333548158220393671}
-  _successHomeButton: {fileID: 1128082674014221805}
-  _restartButton: {fileID: 760359878270859114}
-  _nextButton: {fileID: 4180568534614540451}
+  failHomeButton: {fileID: 4333548158220393671}
+  successHomeButton: {fileID: 1128082674014221805}
+  restartButton: {fileID: 760359878270859114}
+  nextButton: {fileID: 4180568534614540451}
 --- !u!1 &6867323259899268379
 GameObject:
   m_ObjectHideFlags: 0

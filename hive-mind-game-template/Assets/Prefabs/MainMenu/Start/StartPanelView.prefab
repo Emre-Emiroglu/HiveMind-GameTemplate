@@ -320,12 +320,12 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  _uiPanelVo:
-    _uiPanelType: 2
+  uiPanelVo:
+    uiPanelType: 2
     canvasGroup: {fileID: 300178609816954313}
     playableDirector: {fileID: 1636606168852239250}
-  _levelText: {fileID: 9166439100753601517}
-  _playButton: {fileID: 703704972609886656}
+  levelText: {fileID: 9166439100753601517}
+  playButton: {fileID: 703704972609886656}
 --- !u!1001 &507094573593640340
 PrefabInstance:
   m_ObjectHideFlags: 0

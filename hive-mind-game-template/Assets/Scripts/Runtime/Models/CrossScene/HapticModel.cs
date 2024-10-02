@@ -7,7 +7,7 @@ namespace HiveMindGameTemplate.Runtime.Models.CrossScene
     {
         #region Constants
         private const string ResourcePath = "Data/CrossScene/HapticSettings";
-        private const string HAPTIC_PATH = "HAPTIC_PATH";
+        private const string HapticPath = "HAPTIC_PATH";
         #endregion
 
         #region Fields
@@ -21,7 +21,7 @@ namespace HiveMindGameTemplate.Runtime.Models.CrossScene
         #region Constructor
         public HapticModel() : base(ResourcePath)
         {
-            _isHapticMuted = ES3.Load(nameof(_isHapticMuted), HAPTIC_PATH, false);
+            _isHapticMuted = ES3.Load(nameof(_isHapticMuted), HapticPath, false);
 
             SetHaptic(_isHapticMuted);
         }
@@ -40,7 +40,7 @@ namespace HiveMindGameTemplate.Runtime.Models.CrossScene
         }
         public void Save()
         {
-            ES3.Save(nameof(_isHapticMuted), _isHapticMuted, HAPTIC_PATH);
+            ES3.Save(nameof(_isHapticMuted), _isHapticMuted, HapticPath);
         }
         #endregion
     }

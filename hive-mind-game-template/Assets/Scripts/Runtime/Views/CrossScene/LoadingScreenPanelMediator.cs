@@ -16,7 +16,7 @@ namespace HiveMindGameTemplate.Runtime.Views.CrossScene
 
         #region Fields
         private AsyncOperation _loadOperation;
-        private bool _loadingCompleted = false;
+        private bool _loadingCompleted;
         #endregion
 
         #region Constructor

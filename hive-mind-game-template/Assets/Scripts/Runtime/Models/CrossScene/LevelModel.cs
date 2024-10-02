@@ -8,7 +8,7 @@ namespace HiveMindGameTemplate.Runtime.Models.CrossScene
     {
         #region Constants
         private const string ResourcePath = "Data/CrossScene/LevelSettings";
-        private const string LEVEL_PERSISTENT_DATA_PATH = "LEVEL_PERSISTENT_DATA_PATH";
+        private const string LevelPersistentDataPath = "LEVEL_PERSISTENT_DATA_PATH";
         #endregion
 
         #region Fields
@@ -22,7 +22,7 @@ namespace HiveMindGameTemplate.Runtime.Models.CrossScene
         #region Constructor
         public LevelModel() : base(ResourcePath)
         {
-            _levelPersistentData = ES3.Load(nameof(_levelPersistentData), LEVEL_PERSISTENT_DATA_PATH, new LevelPersistentData(0));
+            _levelPersistentData = ES3.Load(nameof(_levelPersistentData), LevelPersistentDataPath, new LevelPersistentData(0));
 
             Save();
         }
@@ -47,7 +47,7 @@ namespace HiveMindGameTemplate.Runtime.Models.CrossScene
         }
         public void Save()
         {
-            ES3.Save(nameof(_levelPersistentData), _levelPersistentData, LEVEL_PERSISTENT_DATA_PATH);
+            ES3.Save(nameof(_levelPersistentData), _levelPersistentData, LevelPersistentDataPath);
         }
         #endregion
     }

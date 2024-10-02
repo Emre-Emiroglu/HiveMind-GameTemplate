@@ -14,21 +14,21 @@ namespace HiveMindGameTemplate.Runtime.Views.Game
 
         #region Fields
         [Header("Game Over Panel View Fields")]
-        [SerializeField] private UIPanelVo _uiPanelVo;
-        [SerializeField] private GameOverPanels _gameOverPanels;
-        [SerializeField] private Button _failHomeButton;
-        [SerializeField] private Button _successHomeButton;
-        [SerializeField] private Button _restartButton;
-        [SerializeField] private Button _nextButton;
+        [SerializeField] private UIPanelVo uiPanelVo;
+        [SerializeField] private GameOverPanels gameOverPanels;
+        [SerializeField] private Button failHomeButton;
+        [SerializeField] private Button successHomeButton;
+        [SerializeField] private Button restartButton;
+        [SerializeField] private Button nextButton;
         #endregion
 
         #region Getters
-        public UIPanelVo UIPanelVo => _uiPanelVo;
-        public GameOverPanels GameOverPanels => _gameOverPanels;
-        public Button FailHomeButton => _failHomeButton;
-        public Button SuccessHomeButton => _successHomeButton;
-        public Button RestartButton => _restartButton;
-        public Button NextButton => _nextButton;
+        public UIPanelVo UIPanelVo => uiPanelVo;
+        public GameOverPanels GameOverPanels => gameOverPanels;
+        public Button FailHomeButton => failHomeButton;
+        public Button SuccessHomeButton => successHomeButton;
+        public Button RestartButton => restartButton;
+        public Button NextButton => nextButton;
         #endregion
     }
 

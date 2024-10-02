@@ -11,13 +11,13 @@ namespace HiveMindGameTemplate.Runtime.Views.CrossScene
     {
         #region Fields
         [Header("Logo Holder Panel View Fields")]
-        [SerializeField] private UIPanelVo _uiPanelVo;
-        [SerializeField] private Image _fillImage;
+        [SerializeField] private UIPanelVo uiPanelVo;
+        [SerializeField] private Image fillImage;
         #endregion
 
         #region Getters
-        public UIPanelVo UIPanelVo => _uiPanelVo;
-        public Image FillImage => _fillImage;
+        public UIPanelVo UIPanelVo => uiPanelVo;
+        public Image FillImage => fillImage;
         #endregion
     }
 }

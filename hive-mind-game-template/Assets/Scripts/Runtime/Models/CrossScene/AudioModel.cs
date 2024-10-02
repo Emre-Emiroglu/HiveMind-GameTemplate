@@ -9,9 +9,9 @@ namespace HiveMindGameTemplate.Runtime.Models.CrossScene
     {
         #region Constants
         private const string ResourcePath = "Data/CrossScene/AudioSettings";
-        private const string AUDIO_PATH = "AUDIO_PATH";
-        private const string MUSIC_PARAM = "MUSIC_PARAM";
-        private const string SOUND_PARAM = "SOUND_PARAM";
+        private const string AudioPath = "AUDIO_PATH";
+        private const string MusicParam = "MUSIC_PARAM";
+        private const string SoundParam = "SOUND_PARAM";
         #endregion
 
         #region Fields
@@ -30,8 +30,8 @@ namespace HiveMindGameTemplate.Runtime.Models.CrossScene
         {
             _audioMixer = _settings.AudioMixer;
 
-            _isMusicMuted = ES3.Load(nameof(_isMusicMuted), AUDIO_PATH, false);
-            _isSoundMuted = ES3.Load(nameof(_isSoundMuted), AUDIO_PATH, false);
+            _isMusicMuted = ES3.Load(nameof(_isMusicMuted), AudioPath, false);
+            _isSoundMuted = ES3.Load(nameof(_isSoundMuted), AudioPath, false);
         }
         #endregion
 
@@ -51,21 +51,21 @@ namespace HiveMindGameTemplate.Runtime.Models.CrossScene
         public void SetMusic(bool isActive)
         {
             _isMusicMuted = isActive;
-            _audioMixer.SetFloat(MUSIC_PARAM, _isMusicMuted ? -80 : -20);
+            _audioMixer.SetFloat(MusicParam, _isMusicMuted ? -80 : -20);
 
             Save();
         }
         public void SetSound(bool isActive)
         {
             _isSoundMuted = isActive;
-            _audioMixer.SetFloat(SOUND_PARAM, _isSoundMuted ? -80 : -10);
+            _audioMixer.SetFloat(SoundParam, _isSoundMuted ? -80 : -10);
 
             Save();
         }
         public void Save()
         {
-            ES3.Save(nameof(_isMusicMuted), _isMusicMuted, AUDIO_PATH);
-            ES3.Save(nameof(_isSoundMuted), _isSoundMuted, AUDIO_PATH);
+            ES3.Save(nameof(_isMusicMuted), _isMusicMuted, AudioPath);
+            ES3.Save(nameof(_isSoundMuted), _isSoundMuted, AudioPath);
         }
         #endregion
     }

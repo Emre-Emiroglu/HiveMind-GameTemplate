@@ -52,8 +52,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e38e9bd0be194e3d9959fe95ac004750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _iconImage: {fileID: 3870064628640687769}
-  _amountText: {fileID: 5291923730897335795}
+  iconImage: {fileID: 3870064628640687769}
+  amountText: {fileID: 5291923730897335795}
 --- !u!114 &8022606517294371923
 MonoBehaviour:
   m_ObjectHideFlags: 0

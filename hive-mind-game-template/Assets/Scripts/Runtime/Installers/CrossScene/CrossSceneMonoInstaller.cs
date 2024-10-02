@@ -1,6 +1,6 @@
 using HiveMindGameTemplate.Runtime.Data.ValueObjects.CrossScene;
 using HiveMindGameTemplate.Runtime.Factories;
-using HiveMindGameTemplate.Runtime.Handlers.CrossScene;
+using HiveMindGameTemplate.Runtime.Handler.CrossScene;
 using HiveMindGameTemplate.Runtime.Views.CrossScene;
 using UnityEngine;
 using Zenject;
@@ -11,8 +11,8 @@ namespace HiveMindGameTemplate.Runtime.Installers.CrossScene
     {
         #region Fields
         [Header("Factories Fields")]
-        [SerializeField] private Transform _currencyTrailParent;
-        [SerializeField] private GameObject _currencyTrailPrefab;
+        [SerializeField] private Transform currencyTrailParent;
+        [SerializeField] private GameObject currencyTrailPrefab;
         #endregion
 
         #region Bindings
@@ -29,8 +29,8 @@ namespace HiveMindGameTemplate.Runtime.Installers.CrossScene
               (poolBinder => poolBinder
                   .WithInitialSize(5)
                   .FromSubContainerResolve()
-                  .ByNewPrefabInstaller<CurrencyTrailInstaller>(_currencyTrailPrefab)
-                  .UnderTransform(_currencyTrailParent)
+                  .ByNewPrefabInstaller<CurrencyTrailInstaller>(currencyTrailPrefab)
+                  .UnderTransform(currencyTrailParent)
               );
         }
         #endregion

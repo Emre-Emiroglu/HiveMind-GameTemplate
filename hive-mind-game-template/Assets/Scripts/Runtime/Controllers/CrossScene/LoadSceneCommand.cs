@@ -22,7 +22,7 @@ namespace HiveMindGameTemplate.Runtime.Controllers.CrossScene
         #region Executes
         public override void Execute(LoadSceneSignal signal)
         {
-            AsyncOperation asyncOperation = SceneManager.LoadSceneAsync((int)signal.SceneIdid);
+            AsyncOperation asyncOperation = SceneManager.LoadSceneAsync((int)signal.SceneId);
 
             _signalBus.Fire<ChangeLoadingScreenActivationSignal>(new(true, asyncOperation));
         }

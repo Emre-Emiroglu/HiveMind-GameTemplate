@@ -8,10 +8,10 @@ namespace HiveMindGameTemplate.Editor
     public class StartupSceneLoader
     {
         #region Constants
-        private const string PREVIOUS_SCENE_KEY = "PreviousScene";
-        private const string SHOULD_LOAD_STARTUP_SCENE_KEY = "LoadStartupScene";
-        private const string LOAD_STARTUP_SCENE_ON_PLAY = "HiveMindGameTemplate/Load Startup Scene On Play";
-        private const string DONT_LOAD_STARTUP_SCENE_ON_PLAY = "HiveMindGameTemplate/Don't Load Startup Scene On Play";
+        private const string PreviousSceneKey = "PreviousScene";
+        private const string ShouldLoadStartupSceneKey = "LoadStartupScene";
+        private const string LoadStartupSceneOnPlay = "HiveMindGameTemplate/Load Startup Scene On Play";
+        private const string DontLoadStartupSceneOnPlay = "HiveMindGameTemplate/Don't Load Startup Scene On Play";
         #endregion
 
         #region Fields
@@ -25,20 +25,20 @@ namespace HiveMindGameTemplate.Editor
         #region Props
         private static string PreviousScene
         {
-            get => EditorPrefs.GetString(PREVIOUS_SCENE_KEY);
-            set => EditorPrefs.SetString(PREVIOUS_SCENE_KEY, value);
+            get => EditorPrefs.GetString(PreviousSceneKey);
+            set => EditorPrefs.SetString(PreviousSceneKey, value);
         }
         private static bool ShouldLoadStartupScene
         {
             get
             {
-                if (!EditorPrefs.HasKey(SHOULD_LOAD_STARTUP_SCENE_KEY))
-                    EditorPrefs.SetBool(SHOULD_LOAD_STARTUP_SCENE_KEY, true);
+                if (!EditorPrefs.HasKey(ShouldLoadStartupSceneKey))
+                    EditorPrefs.SetBool(ShouldLoadStartupSceneKey, true);
 
-                return EditorPrefs.GetBool(SHOULD_LOAD_STARTUP_SCENE_KEY);
+                return EditorPrefs.GetBool(ShouldLoadStartupSceneKey);
             }
 
-            set => EditorPrefs.SetBool(SHOULD_LOAD_STARTUP_SCENE_KEY, value);
+            set => EditorPrefs.SetBool(ShouldLoadStartupSceneKey, value);
         }
         #endregion
 
@@ -50,22 +50,22 @@ namespace HiveMindGameTemplate.Editor
         #endregion
 
         #region MenuItems
-        [MenuItem(LOAD_STARTUP_SCENE_ON_PLAY, true)]
+        [MenuItem(LoadStartupSceneOnPlay, true)]
         private static bool ShowLoadStartupSceneOnPlay()
         {
             return !ShouldLoadStartupScene;
         }
-        [MenuItem(LOAD_STARTUP_SCENE_ON_PLAY)]
+        [MenuItem(LoadStartupSceneOnPlay)]
         private static void EnableLoadStartupSceneOnPlay()
         {
             ShouldLoadStartupScene = true;
         }
-        [MenuItem(DONT_LOAD_STARTUP_SCENE_ON_PLAY, true)]
+        [MenuItem(DontLoadStartupSceneOnPlay, true)]
         private static bool ShowDoNotLoadStartupSceneOnPlay()
         {
             return ShouldLoadStartupScene;
         }
-        [MenuItem(DONT_LOAD_STARTUP_SCENE_ON_PLAY)]
+        [MenuItem(DontLoadStartupSceneOnPlay)]
         private static void DisableDoNotLoadBootstrapSceneOnPlay()
         {
             ShouldLoadStartupScene = false;
@@ -89,7 +89,7 @@ namespace HiveMindGameTemplate.Editor
             if (playModeStateChange == PlayModeStateChange.ExitingEditMode)
             {
                 // cache previous scene to return to it after play session ends
-                PreviousScene = EditorSceneManager.GetActiveScene().path;
+                PreviousScene = SceneManager.GetActiveScene().path;
 
                 if (EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
                 {
@@ -97,11 +97,11 @@ namespace HiveMindGameTemplate.Editor
 
                     if (!string.IsNullOrEmpty(StartupScene) && System.Array.Exists(EditorBuildSettings.scenes, scene => scene.path == StartupScene))
                     {
-                        Scene activeScene = EditorSceneManager.GetActiveScene();
+                        Scene activeScene = SceneManager.GetActiveScene();
 
                         _restartingToSwitchedScene = activeScene.path == string.Empty || !StartupScene.Contains(activeScene.path);
 
-                        // only switch if editor is in a empty scene or active scene is not startup scene
+                        // only switch if editor is in an empty scene or active scene is not startup scene
                         if (_restartingToSwitchedScene)
                         {
                             EditorApplication.isPlaying = false;

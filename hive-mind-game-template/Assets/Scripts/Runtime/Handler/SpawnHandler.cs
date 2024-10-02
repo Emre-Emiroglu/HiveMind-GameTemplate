@@ -1,24 +1,24 @@
 using System;
 using Zenject;
 
-namespace HiveMindGameTemplate.Runtime.Handlers
+namespace HiveMindGameTemplate.Runtime.Handler
 {
     public abstract class SpawnHandler<TModel, TFactory> : IDisposable
          where TModel : class
          where TFactory : IPlaceholderFactory
     {
         #region ReadonlyFields
-        protected readonly SignalBus signalBus;
-        protected readonly TModel model;
-        protected readonly TFactory factory;
+        protected readonly SignalBus SignalBus;
+        protected readonly TModel Model;
+        protected readonly TFactory Factory;
         #endregion
 
         #region Constructor
         public SpawnHandler(SignalBus signalBus, TModel model, TFactory factory)
         {
-            this.signalBus = signalBus;
-            this.model = model;
-            this.factory = factory;
+            this.SignalBus = signalBus;
+            this.Model = model;
+            this.Factory = factory;
         }
         #endregion
 

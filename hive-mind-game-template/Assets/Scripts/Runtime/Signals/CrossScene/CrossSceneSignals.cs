@@ -28,17 +28,17 @@ namespace HiveMindGameTemplate.Runtime.Signals.CrossScene
     public readonly struct LoadSceneSignal
     {
         #region ReadonlyFields
-        private readonly SceneID _sceneIDID;
+        private readonly SceneID _sceneId;
         #endregion
 
         #region Getters
-        public SceneID SceneIdid => _sceneIDID;
+        public SceneID SceneId => _sceneId;
         #endregion
 
         #region Constructor
-        public LoadSceneSignal(SceneID sceneIDID)
+        public LoadSceneSignal(SceneID sceneId)
         {
-            _sceneIDID = sceneIDID;
+            _sceneId = sceneId;
         }
         #endregion
     } // Has Command

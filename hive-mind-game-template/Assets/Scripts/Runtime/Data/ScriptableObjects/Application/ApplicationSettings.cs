@@ -7,13 +7,13 @@ namespace HiveMindGameTemplate.Runtime.Data.ScriptableObjects.Application
     {
         #region Fields
         [Header("Application Settings Fields")]
-        [Range(30, 240)][SerializeField] private int _targetFrameRate;
-        [SerializeField] private bool _runInBackground;
+        [Range(30, 240)][SerializeField] private int targetFrameRate;
+        [SerializeField] private bool runInBackground;
         #endregion
 
         #region Getters
-        public int TargetFrameRate => _targetFrameRate;
-        public bool RunInBackground => _runInBackground;
+        public int TargetFrameRate => targetFrameRate;
+        public bool RunInBackground => runInBackground;
         #endregion
     }
 }

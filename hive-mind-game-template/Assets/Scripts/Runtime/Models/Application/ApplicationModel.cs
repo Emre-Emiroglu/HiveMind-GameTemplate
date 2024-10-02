@@ -6,11 +6,11 @@ namespace HiveMindGameTemplate.Runtime.Models.Application
     public class ApplicationModel : Model<ApplicationSettings>
     {
         #region Constants
-        private const string RESOURCE_PATH = "Data/Application/ApplicationSettings";
+        private const string ResourcePath = "Data/Application/ApplicationSettings";
         #endregion
 
         #region Constructor
-        public ApplicationModel() : base(RESOURCE_PATH) { }
+        public ApplicationModel() : base(ResourcePath) { }
         #endregion
 
         #region PostConstruct
